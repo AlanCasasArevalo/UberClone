@@ -12,6 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="UberClone" customModuleProvider="target">
             <connections>
+                <outlet property="emailTextField" destination="e6q-Mi-T2t" id="6yZ-PP-ggN"/>
+                <outlet property="passwordTextField" destination="Mpa-er-7Uz" id="6AV-T0-4L6"/>
+                <outlet property="registerButton" destination="dhh-Rr-M0x" id="ecQ-Wf-CUk"/>
+                <outlet property="rolDriverRiderSwitch" destination="Kr8-Wn-hgy" id="TQO-Bb-fZa"/>
+                <outlet property="signInButton" destination="k7I-tM-zQk" id="cPg-xL-S30"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -50,10 +55,16 @@
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7I-tM-zQk">
                     <rect key="frame" x="186" y="295" width="42" height="30"/>
                     <state key="normal" title="Entrar"/>
+                    <connections>
+                        <action selector="signInButton:" destination="-1" eventType="touchUpInside" id="RH2-3F-J25"/>
+                    </connections>
                 </button>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dhh-Rr-M0x">
                     <rect key="frame" x="124" y="406" width="166" height="30"/>
                     <state key="normal" title="Cambia para Registrarte"/>
+                    <connections>
+                        <action selector="registerButton:" destination="-1" eventType="touchUpInside" id="09r-KW-1b8"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="O" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Srj-IR-f0x">
                     <rect key="frame" x="200.5" y="355" width="13" height="21"/>
