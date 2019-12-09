@@ -12,7 +12,9 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="UberClone" customModuleProvider="target">
             <connections>
+                <outlet property="driverLabel" destination="Y2g-cm-EXP" id="idJ-TV-e6g"/>
                 <outlet property="emailTextField" destination="e6q-Mi-T2t" id="6yZ-PP-ggN"/>
+                <outlet property="passengerLabel" destination="BEl-i6-LYR" id="gNi-mz-3ME"/>
                 <outlet property="passwordTextField" destination="Mpa-er-7Uz" id="6AV-T0-4L6"/>
                 <outlet property="registerButton" destination="dhh-Rr-M0x" id="ecQ-Wf-CUk"/>
                 <outlet property="rolDriverRiderSwitch" destination="Kr8-Wn-hgy" id="TQO-Bb-fZa"/>
@@ -53,8 +55,8 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k7I-tM-zQk">
-                    <rect key="frame" x="186" y="295" width="42" height="30"/>
-                    <state key="normal" title="Entrar"/>
+                    <rect key="frame" x="162" y="295" width="90" height="30"/>
+                    <state key="normal" title="Iniciar sesion"/>
                     <connections>
                         <action selector="signInButton:" destination="-1" eventType="touchUpInside" id="RH2-3F-J25"/>
                     </connections>
