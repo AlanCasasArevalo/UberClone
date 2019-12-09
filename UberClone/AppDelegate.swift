@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         FirebaseManager.shared.startConfiguration()
         
-        let initialVC = appAssembly.coreAssembly.emptyVC
+        let initialVC = appAssembly.coreAssembly.login
         appAssembly.window.rootViewController = appAssembly.navigationController
         appAssembly.navigationController.pushViewController(initialVC, animated: false)
         appAssembly.window.makeKeyAndVisible()

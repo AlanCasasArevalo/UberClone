@@ -12,7 +12,7 @@ final public class CoreAssembly {
     
     private let navigationController: UINavigationController
     
-    let emptyVC = UIViewController()
+    let login = LoginAssembly().viewController()
     
     public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
