@@ -8,8 +8,15 @@
 
 import Foundation
 
-class LoginPresenter {
+protocol LoginPresenterProtocol {
     
+}
+
+class LoginPresenter: LoginPresenterProtocol {
+    var loginView: LoginViewControllerProtocol?
+    var loginRouter: LoginRouterProtocol?
+    var loginInteractor: LoginInteractorProtocol?
+
 }
 
 

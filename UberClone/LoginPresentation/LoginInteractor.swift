@@ -8,8 +8,12 @@
 
 import Foundation
 
-class LoginInteractor {
+protocol LoginInteractorProtocol {
     
+}
+
+class LoginInteractor: LoginInteractorProtocol {
+    var provider: LoginProviderProtocol?
 }
 
 

@@ -8,7 +8,11 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+protocol LoginViewControllerProtocol {
+    
+}
+
+class LoginViewController: UIViewController, LoginViewControllerProtocol {
 
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
@@ -16,6 +20,7 @@ class LoginViewController: UIViewController {
     @IBOutlet weak var signInButton: UIButton!
     @IBOutlet weak var registerButton: UIButton!
 
+    var loginPresenter: LoginPresenterProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -7,9 +7,13 @@
 //
 
 import Foundation
-
-class LoginRouter {
+protocol LoginRouterProtocol {
     
+}
+
+class LoginRouter: LoginRouterProtocol {
+    var loginView: LoginViewControllerProtocol?
+
 }
 
 
