@@ -21,6 +21,7 @@
 		5169AA38239EB6C60054D16A /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169AA37239EB6C60054D16A /* LoginInteractor.swift */; };
 		5169AA3A239EB6D10054D16A /* LoginAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169AA39239EB6D10054D16A /* LoginAssembly.swift */; };
 		5169AA3C239ED1260054D16A /* LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169AA3B239ED1260054D16A /* LoginProvider.swift */; };
+		5169AA40239EEC790054D16A /* UIViewControllers+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169AA3F239EEC790054D16A /* UIViewControllers+Alerts.swift */; };
 		586DA2A538E4B7E5A7C2578C /* Pods_UberClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD9E12A95CEACCF8F65580CB /* Pods_UberClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -42,6 +43,7 @@
 		5169AA37239EB6C60054D16A /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
 		5169AA39239EB6D10054D16A /* LoginAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembly.swift; sourceTree = "<group>"; };
 		5169AA3B239ED1260054D16A /* LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
+		5169AA3F239EEC790054D16A /* UIViewControllers+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllers+Alerts.swift"; sourceTree = "<group>"; };
 		AECA7F7E111AF5C613D3E40C /* Pods-UberClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UberClone/Pods-UberClone.debug.xcconfig"; sourceTree = "<group>"; };
 		BD9E12A95CEACCF8F65580CB /* Pods_UberClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -79,6 +81,7 @@
 		5169AA09239EA9FF0054D16A /* UberClone */ = {
 			isa = PBXGroup;
 			children = (
+				5169AA3D239EEC570054D16A /* Commons */,
 				5169AA2C239EB3F00054D16A /* GoogleService-Info.plist */,
 				5169AA0A239EA9FF0054D16A /* AppDelegate.swift */,
 				5169AA1C239EAC5C0054D16A /* AppAssembly.swift */,
@@ -104,6 +107,22 @@
 				5169AA39239EB6D10054D16A /* LoginAssembly.swift */,
 			);
 			path = LoginPresentation;
+			sourceTree = "<group>";
+		};
+		5169AA3D239EEC570054D16A /* Commons */ = {
+			isa = PBXGroup;
+			children = (
+				5169AA3E239EEC610054D16A /* Extensions */,
+			);
+			path = Commons;
+			sourceTree = "<group>";
+		};
+		5169AA3E239EEC610054D16A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				5169AA3F239EEC790054D16A /* UIViewControllers+Alerts.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		5A309761D914DD247913DA00 /* Pods */ = {
@@ -243,6 +262,7 @@
 				5169AA34239EB6B30054D16A /* LoginPresenter.swift in Sources */,
 				5169AA28239EB1BC0054D16A /* FirebaseManager.swift in Sources */,
 				5169AA1F239EAC930054D16A /* CoreAssembly.swift in Sources */,
+				5169AA40239EEC790054D16A /* UIViewControllers+Alerts.swift in Sources */,
 				5169AA0B239EA9FF0054D16A /* AppDelegate.swift in Sources */,
 				5169AA38239EB6C60054D16A /* LoginInteractor.swift in Sources */,
 				5169AA31239EB6A90054D16A /* LoginViewController.swift in Sources */,

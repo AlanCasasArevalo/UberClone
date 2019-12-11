@@ -38,7 +38,17 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
     }
 
     @IBAction func signInButton(_ sender: UIButton) {
-        
+        if passwordTextField.text == "" || emailTextField.text == "" {
+            self.displayAlert(alertTitle: "Empty element", alertMessage: "Password or email could not be empty", actionTitle: "Ok", okCompletionHandler: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
+        } else {
+            if passwordTextField.text?.count ?? 6 > 7 {
+                if self.loginPresenter?.isSignUpLogin ?? false {
+                    
+                } else {
+                    
+                }
+            }
+        }
     }
     
     @IBAction func registerButton(_ sender: UIButton) {
