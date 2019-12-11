@@ -8,6 +8,7 @@
 
 import Foundation
 import Firebase
+import FirebaseAuth
 
 class FirebaseManager {
     
@@ -15,5 +16,25 @@ class FirebaseManager {
     
     func startConfiguration () {
         FirebaseApp.configure()
+    }
+    
+    func createNewUser(withEmail: String, password: String, success: @escaping (String?) -> Void, failure: @escaping (String?) -> Void) {
+        Auth.auth().createUser(withEmail: withEmail, password: password) { (user, error) in
+            if error != nil {
+                failure(error?.localizedDescription)
+            } else {
+                success("Sign up Success")
+            }
+        }
+    }
+    
+    func signIn(withEmail: String, password: String, success: @escaping (String?) -> Void, failure: @escaping (String?) -> Void) {
+        Auth.auth().signIn(withEmail: withEmail, password: password) { (user, error) in
+            if error != nil {
+                failure(error?.localizedDescription)
+            } else {
+                success("Log in Success")
+            }
+        }
     }
 }

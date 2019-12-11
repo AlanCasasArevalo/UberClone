@@ -9,7 +9,7 @@
 import UIKit
 
 extension UIViewController {
-    func displayAlert (alertTitle: String, alertMessage: String, actionTitle: String, okCompletionHandler: ((UIAlertAction) -> Void)? = nil, cancelTitle: String? = nil, cancelCompletionHandler: ((UIAlertAction) -> Void)? = nil, presentationCompletion: (() -> Void)? = nil) {
+    func showAlertWithArguments (alertTitle: String, alertMessage: String, actionTitle: String, okCompletionHandler: ((UIAlertAction) -> Void)?, cancelTitle: String?, cancelCompletionHandler: ((UIAlertAction) -> Void)?, presentationCompletion: (() -> Void)?) {
         let alert = UIAlertController(title: alertTitle, message: alertMessage, preferredStyle: .alert)
         let okAction = UIAlertAction(title: actionTitle, style: .default, handler: okCompletionHandler)
         
