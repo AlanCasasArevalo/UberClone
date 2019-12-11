@@ -12,10 +12,12 @@ protocol LoginRouterProtocol {
 }
 
 class LoginRouter: LoginRouterProtocol {
+    
     var loginView: LoginViewControllerProtocol?
+    var riderAssembly: RiderAssemby!
 
     func navigationToRiderMap () {
-        
+        self.loginView?.navigationControllerPopToViewController(viewController: self.riderAssembly.viewController())
     }
 }
 

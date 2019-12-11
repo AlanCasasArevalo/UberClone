@@ -25,13 +25,14 @@ final public class LoginAssembly {
     func presenter (view: LoginViewControllerProtocol) -> LoginPresenterProtocol {
         let presenter = LoginPresenter()
         presenter.loginView = view
-        presenter.loginRouter = router(view: view)
+        presenter.loginRouter = router(view: view, riderAssembly: self.riderAssembly)
         presenter.loginInteractor = interactor()
         return presenter
     }
     
-    func router (view: LoginViewControllerProtocol) -> LoginRouterProtocol {
+    func router (view: LoginViewControllerProtocol, riderAssembly: RiderAssemby) -> LoginRouterProtocol {
         let router = LoginRouter ()
+        router.riderAssembly = riderAssembly
         router.loginView = view
         return router
     }

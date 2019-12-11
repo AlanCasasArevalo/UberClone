@@ -78,7 +78,6 @@ class LoginPresenter: LoginPresenterProtocol {
             }, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
         }, failure: { (error) in
             self.loginView?.showAlertWithArguments(alertTitle: "Error", alertMessage: error ?? "", actionTitle: "OK", okCompletionHandler: nil, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
-
         })
     }
 

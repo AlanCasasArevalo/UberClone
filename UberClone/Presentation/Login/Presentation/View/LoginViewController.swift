@@ -13,7 +13,7 @@ protocol LoginViewControllerProtocol {
     func setSignInButtonTitle (title: String)
     func setRegisterButtonTitle (title: String)
     func showAlertWithArguments (alertTitle: String, alertMessage: String, actionTitle: String, okCompletionHandler: ((UIAlertAction) -> Void)?, cancelTitle: String?, cancelCompletionHandler: ((UIAlertAction) -> Void)?, presentationCompletion: (() -> Void)?) 
-
+    func navigationControllerPopToViewController (viewController: UIViewController)
 }
 
 class LoginViewController: UIViewController, LoginViewControllerProtocol {
@@ -78,5 +78,11 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
 
     func setRegisterButtonTitle (title: String) {
         self.registerButton.setTitle(title, for: .normal)
+    }
+}
+
+extension LoginViewController {
+    func navigationControllerPopToViewController (viewController: UIViewController) {
+        self.navigationController?.pushViewController(viewController, animated: true)
     }
 }

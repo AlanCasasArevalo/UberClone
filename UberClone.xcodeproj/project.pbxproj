@@ -23,6 +23,12 @@
 		5169AA3C239ED1260054D16A /* LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169AA3B239ED1260054D16A /* LoginProvider.swift */; };
 		5169AA40239EEC790054D16A /* UIViewControllers+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169AA3F239EEC790054D16A /* UIViewControllers+Alerts.swift */; };
 		51FAF01923A1757F00ECB99E /* RiderAssemby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF01823A1757F00ECB99E /* RiderAssemby.swift */; };
+		51FAF02323A17D8D00ECB99E /* RiderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF02223A17D8D00ECB99E /* RiderPresenter.swift */; };
+		51FAF02523A17D9700ECB99E /* RiderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF02423A17D9700ECB99E /* RiderRouter.swift */; };
+		51FAF02723A17DA300ECB99E /* RiderInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF02623A17DA300ECB99E /* RiderInteractor.swift */; };
+		51FAF02923A17DAF00ECB99E /* RiderProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF02823A17DAF00ECB99E /* RiderProvider.swift */; };
+		51FAF02E23A17E6E00ECB99E /* RiderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF02C23A17E6E00ECB99E /* RiderViewController.swift */; };
+		51FAF02F23A17E6E00ECB99E /* RiderViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51FAF02D23A17E6E00ECB99E /* RiderViewController.xib */; };
 		586DA2A538E4B7E5A7C2578C /* Pods_UberClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD9E12A95CEACCF8F65580CB /* Pods_UberClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -46,6 +52,12 @@
 		5169AA3B239ED1260054D16A /* LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
 		5169AA3F239EEC790054D16A /* UIViewControllers+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllers+Alerts.swift"; sourceTree = "<group>"; };
 		51FAF01823A1757F00ECB99E /* RiderAssemby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderAssemby.swift; sourceTree = "<group>"; };
+		51FAF02223A17D8D00ECB99E /* RiderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderPresenter.swift; sourceTree = "<group>"; };
+		51FAF02423A17D9700ECB99E /* RiderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderRouter.swift; sourceTree = "<group>"; };
+		51FAF02623A17DA300ECB99E /* RiderInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderInteractor.swift; sourceTree = "<group>"; };
+		51FAF02823A17DAF00ECB99E /* RiderProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderProvider.swift; sourceTree = "<group>"; };
+		51FAF02C23A17E6E00ECB99E /* RiderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderViewController.swift; sourceTree = "<group>"; };
+		51FAF02D23A17E6E00ECB99E /* RiderViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RiderViewController.xib; sourceTree = "<group>"; };
 		AECA7F7E111AF5C613D3E40C /* Pods-UberClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UberClone/Pods-UberClone.debug.xcconfig"; sourceTree = "<group>"; };
 		BD9E12A95CEACCF8F65580CB /* Pods_UberClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -102,8 +114,7 @@
 			children = (
 				51FAF01E23A1789400ECB99E /* Presentation */,
 				5169AA35239EB6BC0054D16A /* LoginRouter.swift */,
-				5169AA37239EB6C60054D16A /* LoginInteractor.swift */,
-				5169AA3B239ED1260054D16A /* LoginProvider.swift */,
+				51FAF02A23A17DCD00ECB99E /* Repository */,
 				51FAF01B23A1786400ECB99E /* DI */,
 			);
 			path = Login;
@@ -198,6 +209,8 @@
 			children = (
 				51FAF02123A178B200ECB99E /* View */,
 				51FAF02023A178AB00ECB99E /* Presenter */,
+				51FAF02423A17D9700ECB99E /* RiderRouter.swift */,
+				51FAF02B23A17DD800ECB99E /* Repository */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -205,6 +218,7 @@
 		51FAF02023A178AB00ECB99E /* Presenter */ = {
 			isa = PBXGroup;
 			children = (
+				51FAF02223A17D8D00ECB99E /* RiderPresenter.swift */,
 			);
 			path = Presenter;
 			sourceTree = "<group>";
@@ -212,8 +226,28 @@
 		51FAF02123A178B200ECB99E /* View */ = {
 			isa = PBXGroup;
 			children = (
+				51FAF02C23A17E6E00ECB99E /* RiderViewController.swift */,
+				51FAF02D23A17E6E00ECB99E /* RiderViewController.xib */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		51FAF02A23A17DCD00ECB99E /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				5169AA37239EB6C60054D16A /* LoginInteractor.swift */,
+				5169AA3B239ED1260054D16A /* LoginProvider.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		51FAF02B23A17DD800ECB99E /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				51FAF02623A17DA300ECB99E /* RiderInteractor.swift */,
+				51FAF02823A17DAF00ECB99E /* RiderProvider.swift */,
+			);
+			path = Repository;
 			sourceTree = "<group>";
 		};
 		5A309761D914DD247913DA00 /* Pods */ = {
@@ -297,6 +331,7 @@
 				5169AA15239EAA000054D16A /* LaunchScreen.storyboard in Resources */,
 				5169AA12239EAA000054D16A /* Assets.xcassets in Resources */,
 				5169AA2D239EB3F00054D16A /* GoogleService-Info.plist in Resources */,
+				51FAF02F23A17E6E00ECB99E /* RiderViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -354,14 +389,19 @@
 				5169AA28239EB1BC0054D16A /* FirebaseManager.swift in Sources */,
 				5169AA1F239EAC930054D16A /* CoreAssembly.swift in Sources */,
 				5169AA40239EEC790054D16A /* UIViewControllers+Alerts.swift in Sources */,
+				51FAF02723A17DA300ECB99E /* RiderInteractor.swift in Sources */,
 				5169AA0B239EA9FF0054D16A /* AppDelegate.swift in Sources */,
 				5169AA38239EB6C60054D16A /* LoginInteractor.swift in Sources */,
 				5169AA31239EB6A90054D16A /* LoginViewController.swift in Sources */,
+				51FAF02523A17D9700ECB99E /* RiderRouter.swift in Sources */,
 				51FAF01923A1757F00ECB99E /* RiderAssemby.swift in Sources */,
+				51FAF02E23A17E6E00ECB99E /* RiderViewController.swift in Sources */,
 				5169AA3C239ED1260054D16A /* LoginProvider.swift in Sources */,
 				5169AA36239EB6BC0054D16A /* LoginRouter.swift in Sources */,
 				5169AA3A239EB6D10054D16A /* LoginAssembly.swift in Sources */,
 				5169AA1D239EAC5C0054D16A /* AppAssembly.swift in Sources */,
+				51FAF02323A17D8D00ECB99E /* RiderPresenter.swift in Sources */,
+				51FAF02923A17DAF00ECB99E /* RiderProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
