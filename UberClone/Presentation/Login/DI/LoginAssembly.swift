@@ -10,6 +10,12 @@ import UIKit
 
 final public class LoginAssembly {
     
+    private let riderAssembly: RiderAssemby
+    
+    init(riderAssembly: RiderAssemby) {
+        self.riderAssembly = riderAssembly
+    }
+    
     final public func viewController () -> UIViewController {
         let viewController = LoginViewController()
         viewController.loginPresenter = presenter(view: viewController)

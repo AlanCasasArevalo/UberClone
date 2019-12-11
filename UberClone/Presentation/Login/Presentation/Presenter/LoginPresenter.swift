@@ -63,19 +63,23 @@ class LoginPresenter: LoginPresenterProtocol {
     }
     
     func createNewUser(withEmail: String, password: String) {
-        FirebaseManager.shared.createNewUser(withEmail: withEmail, password: password, success: { (success) in
+        loginInteractor?.createNewUser(withEmail: withEmail, password: password, success: { (success) in
             self.loginView?.showAlertWithArguments(alertTitle: "Success", alertMessage: success ?? "", actionTitle: "OK", okCompletionHandler: nil, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
-        }) { (error) in
+        }, failure: { (error) in
             self.loginView?.showAlertWithArguments(alertTitle: "Error", alertMessage: error ?? "", actionTitle: "OK", okCompletionHandler: nil, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
-        }
+        })
     }
     
     func signIn(withEmail: String, password: String) {
-        FirebaseManager.shared.signIn(withEmail: withEmail, password: password, success: { (success) in
-            self.loginView?.showAlertWithArguments(alertTitle: "Success", alertMessage: success ?? "", actionTitle: "OK", okCompletionHandler: nil, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
-        }) { (error) in
+        loginInteractor?.signIn(withEmail: withEmail, password: password, success: { (success) in
+            self.loginView?.showAlertWithArguments(alertTitle: "Success", alertMessage: success ?? "", actionTitle: "Ok", okCompletionHandler: { (action) in
+                // Navigation to Rider Map
+                self.loginRouter?.navigationToRiderMap()
+            }, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
+        }, failure: { (error) in
             self.loginView?.showAlertWithArguments(alertTitle: "Error", alertMessage: error ?? "", actionTitle: "OK", okCompletionHandler: nil, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
-        }
+
+        })
     }
 
 }

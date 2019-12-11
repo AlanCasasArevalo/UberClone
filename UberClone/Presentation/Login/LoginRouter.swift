@@ -8,12 +8,15 @@
 
 import Foundation
 protocol LoginRouterProtocol {
-    
+    func navigationToRiderMap ()
 }
 
 class LoginRouter: LoginRouterProtocol {
     var loginView: LoginViewControllerProtocol?
 
+    func navigationToRiderMap () {
+        
+    }
 }
 
 

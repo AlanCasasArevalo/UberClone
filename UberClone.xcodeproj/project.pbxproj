@@ -22,6 +22,7 @@
 		5169AA3A239EB6D10054D16A /* LoginAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169AA39239EB6D10054D16A /* LoginAssembly.swift */; };
 		5169AA3C239ED1260054D16A /* LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169AA3B239ED1260054D16A /* LoginProvider.swift */; };
 		5169AA40239EEC790054D16A /* UIViewControllers+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169AA3F239EEC790054D16A /* UIViewControllers+Alerts.swift */; };
+		51FAF01923A1757F00ECB99E /* RiderAssemby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF01823A1757F00ECB99E /* RiderAssemby.swift */; };
 		586DA2A538E4B7E5A7C2578C /* Pods_UberClone.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BD9E12A95CEACCF8F65580CB /* Pods_UberClone.framework */; };
 /* End PBXBuildFile section */
 
@@ -44,6 +45,7 @@
 		5169AA39239EB6D10054D16A /* LoginAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginAssembly.swift; sourceTree = "<group>"; };
 		5169AA3B239ED1260054D16A /* LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
 		5169AA3F239EEC790054D16A /* UIViewControllers+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllers+Alerts.swift"; sourceTree = "<group>"; };
+		51FAF01823A1757F00ECB99E /* RiderAssemby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderAssemby.swift; sourceTree = "<group>"; };
 		AECA7F7E111AF5C613D3E40C /* Pods-UberClone.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone.debug.xcconfig"; path = "Pods/Target Support Files/Pods-UberClone/Pods-UberClone.debug.xcconfig"; sourceTree = "<group>"; };
 		BD9E12A95CEACCF8F65580CB /* Pods_UberClone.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_UberClone.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -86,8 +88,8 @@
 				5169AA0A239EA9FF0054D16A /* AppDelegate.swift */,
 				5169AA1C239EAC5C0054D16A /* AppAssembly.swift */,
 				5169AA1E239EAC930054D16A /* CoreAssembly.swift */,
-				5169AA27239EB1BC0054D16A /* FirebaseManager.swift */,
-				5169AA2E239EB6800054D16A /* LoginPresentation */,
+				51FAF01723A1755E00ECB99E /* Presentation */,
+				51FAF01523A1751300ECB99E /* Managers */,
 				5169AA11239EAA000054D16A /* Assets.xcassets */,
 				5169AA13239EAA000054D16A /* LaunchScreen.storyboard */,
 				5169AA16239EAA000054D16A /* Info.plist */,
@@ -95,18 +97,16 @@
 			path = UberClone;
 			sourceTree = "<group>";
 		};
-		5169AA2E239EB6800054D16A /* LoginPresentation */ = {
+		5169AA2E239EB6800054D16A /* Login */ = {
 			isa = PBXGroup;
 			children = (
-				5169AA2F239EB6A90054D16A /* LoginViewController.swift */,
-				5169AA30239EB6A90054D16A /* LoginViewController.xib */,
-				5169AA33239EB6B30054D16A /* LoginPresenter.swift */,
+				51FAF01E23A1789400ECB99E /* Presentation */,
 				5169AA35239EB6BC0054D16A /* LoginRouter.swift */,
 				5169AA37239EB6C60054D16A /* LoginInteractor.swift */,
 				5169AA3B239ED1260054D16A /* LoginProvider.swift */,
-				5169AA39239EB6D10054D16A /* LoginAssembly.swift */,
+				51FAF01B23A1786400ECB99E /* DI */,
 			);
-			path = LoginPresentation;
+			path = Login;
 			sourceTree = "<group>";
 		};
 		5169AA3D239EEC570054D16A /* Commons */ = {
@@ -123,6 +123,97 @@
 				5169AA3F239EEC790054D16A /* UIViewControllers+Alerts.swift */,
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		51FAF01523A1751300ECB99E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				5169AA27239EB1BC0054D16A /* FirebaseManager.swift */,
+			);
+			path = Managers;
+			sourceTree = "<group>";
+		};
+		51FAF01623A1753000ECB99E /* Rider */ = {
+			isa = PBXGroup;
+			children = (
+				51FAF01F23A178A100ECB99E /* Presentation */,
+				51FAF01A23A1785900ECB99E /* DI */,
+			);
+			path = Rider;
+			sourceTree = "<group>";
+		};
+		51FAF01723A1755E00ECB99E /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				51FAF01623A1753000ECB99E /* Rider */,
+				5169AA2E239EB6800054D16A /* Login */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		51FAF01A23A1785900ECB99E /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				51FAF01823A1757F00ECB99E /* RiderAssemby.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		51FAF01B23A1786400ECB99E /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				5169AA39239EB6D10054D16A /* LoginAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		51FAF01C23A1786F00ECB99E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				5169AA2F239EB6A90054D16A /* LoginViewController.swift */,
+				5169AA30239EB6A90054D16A /* LoginViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		51FAF01D23A1788600ECB99E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				5169AA33239EB6B30054D16A /* LoginPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		51FAF01E23A1789400ECB99E /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				51FAF01C23A1786F00ECB99E /* View */,
+				51FAF01D23A1788600ECB99E /* Presenter */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		51FAF01F23A178A100ECB99E /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				51FAF02123A178B200ECB99E /* View */,
+				51FAF02023A178AB00ECB99E /* Presenter */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		51FAF02023A178AB00ECB99E /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		51FAF02123A178B200ECB99E /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		5A309761D914DD247913DA00 /* Pods */ = {
@@ -266,6 +357,7 @@
 				5169AA0B239EA9FF0054D16A /* AppDelegate.swift in Sources */,
 				5169AA38239EB6C60054D16A /* LoginInteractor.swift in Sources */,
 				5169AA31239EB6A90054D16A /* LoginViewController.swift in Sources */,
+				51FAF01923A1757F00ECB99E /* RiderAssemby.swift in Sources */,
 				5169AA3C239ED1260054D16A /* LoginProvider.swift in Sources */,
 				5169AA36239EB6BC0054D16A /* LoginRouter.swift in Sources */,
 				5169AA3A239EB6D10054D16A /* LoginAssembly.swift in Sources */,
