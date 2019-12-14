@@ -11,6 +11,7 @@ import MapKit
 
 protocol RiderViewControllerProtocol {
     func navigationControllerHideTitle ()
+    func setInitialViewValues (callAnUberButtonTitle: String)
     func setMap() 
 }
 
@@ -23,12 +24,21 @@ class RiderViewController: UIViewController, RiderViewControllerProtocol {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.riderPresenter?.viewDidLoad()
         let logOutButton: UIBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutFromRider))
         self.navigationItem.rightBarButtonItem = logOutButton
-        
         setMap()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.riderPresenter?.viewWillAppear()
+    }
 
+    func setInitialViewValues (callAnUberButtonTitle: String) {
+        self.callAnUberButton.setTitle(callAnUberButtonTitle, for: .normal)
+    }
+    
     @objc func logoutFromRider() {
         self.riderPresenter?.logoutFromRider()
     }

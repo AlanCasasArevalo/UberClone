@@ -48,4 +48,16 @@ class FirebaseManager {
         Database.database().reference().child("RideRequest").childByAutoId().setValue(riderRequestDictionary)
     }
     
+    func cancelUberFromDatabase () {
+        let currentEmail = getCurrentUserEmail()
+        Database.database().reference().child("RideRequest").queryOrdered(byChild: "email").queryEqual(toValue: currentEmail).observe(.childAdded, with: { (snapShot) in
+            snapShot.ref.removeValue()
+            Database.database().reference().child("RideRequest").removeAllObservers()
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+    }
+    
+    
+    
 }

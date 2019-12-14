@@ -13,6 +13,8 @@ protocol RiderPresenterProtocol {
     func viewWillAppear ()
     func logoutFromRider ()
     func callAnUberButton ()
+    func setInitialViewValues()
+
 }
 
 class RiderPresenter: RiderPresenterProtocol {
@@ -20,6 +22,7 @@ class RiderPresenter: RiderPresenterProtocol {
     var view: RiderViewControllerProtocol?
     var router: RiderRouterProtocol?
     var interactor: RiderInteractorProtocol?
+    var uberHasBeenCalled = false
     
     func viewDidLoad() {
         
@@ -34,10 +37,29 @@ class RiderPresenter: RiderPresenterProtocol {
         
     }
     
+    func getCallAnUberButton () -> String {
+        if uberHasBeenCalled {
+            return "Cancel Uber"
+        } else {
+            return "Call an Uber"
+        }
+    }
+    
+    func setInitialViewValues() {
+        let callAnUberButtonTitle = getCallAnUberButton()
+        self.view?.setInitialViewValues(callAnUberButtonTitle: callAnUberButtonTitle)
+    }
+    
     func callAnUberButton () {
-        let currentUserEmail = FirebaseManager.shared.getCurrentUserEmail()
-        let currentUserLocation =  LocationManager.shared.getCurrentUserLocationUpdated()
-        FirebaseManager.shared.setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude(email: currentUserEmail, latitude: currentUserLocation.latitude, longitude: currentUserLocation.longitude)
+        if uberHasBeenCalled {
+            FirebaseManager.shared.cancelUberFromDatabase()
+        } else {
+            let currentUserEmail = FirebaseManager.shared.getCurrentUserEmail()
+            let currentUserLocation =  LocationManager.shared.getCurrentUserLocationUpdated()
+            FirebaseManager.shared.setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude(email: currentUserEmail, latitude: currentUserLocation.latitude, longitude: currentUserLocation.longitude)
+        }
+        uberHasBeenCalled.toggle()
+        setInitialViewValues()
     }
 
 }
