@@ -23,6 +23,7 @@ class LocationManager: NSObject {
     var locationManager : CLLocationManager?
     var map: MKMapView?
     var region: MKCoordinateRegion?
+    var currentUserLocation = CLLocationCoordinate2D()
     
     func locationReference () {
         //Notificaciones Geofences
@@ -91,6 +92,10 @@ class LocationManager: NSObject {
         map.removeAnnotations(map.annotations)
     }
     
+    func getCurrentUserLocationUpdated () -> CLLocationCoordinate2D{
+        return currentUserLocation
+    }
+    
 }
 
 
@@ -103,6 +108,7 @@ extension LocationManager: CLLocationManagerDelegate {
             self.setRegion(region: region)
             getLocationFromUserWithMapAndRegion()
             removePreviousAnnotations()
+            self.currentUserLocation = center
             setUserLocationPoint(center: center, title: "Tu estas aqui")
         }
     }

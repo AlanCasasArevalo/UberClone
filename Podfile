@@ -10,6 +10,7 @@ target 'UberClone' do
   # Pods for UberClone
   pod 'Firebase/Analytics'
   pod 'Firebase/Auth'
+  pod 'Firebase/Database'
 
 
 end

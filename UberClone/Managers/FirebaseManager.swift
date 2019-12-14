@@ -9,6 +9,7 @@
 import Foundation
 import Firebase
 import FirebaseAuth
+import FirebaseDatabase
 
 class FirebaseManager {
     
@@ -37,4 +38,14 @@ class FirebaseManager {
             }
         }
     }
+    
+    func getCurrentUserEmail() -> String {
+        return Auth.auth().currentUser?.email ?? ""
+    }
+    
+    func setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude (email: String, latitude: Double, longitude: Double) {
+        let riderRequestDictionary: [String: Any] = ["email": email, "latitude": latitude, "longitude": longitude]
+        Database.database().reference().child("RideRequest").childByAutoId().setValue(riderRequestDictionary)
+    }
+    
 }

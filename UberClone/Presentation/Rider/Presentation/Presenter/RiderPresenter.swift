@@ -35,7 +35,9 @@ class RiderPresenter: RiderPresenterProtocol {
     }
     
     func callAnUberButton () {
-        
+        let currentUserEmail = FirebaseManager.shared.getCurrentUserEmail()
+        let currentUserLocation =  LocationManager.shared.getCurrentUserLocationUpdated()
+        FirebaseManager.shared.setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude(email: currentUserEmail, latitude: currentUserLocation.latitude, longitude: currentUserLocation.longitude)
     }
 
 }
