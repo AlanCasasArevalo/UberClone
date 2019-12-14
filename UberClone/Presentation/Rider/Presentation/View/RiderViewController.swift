@@ -10,7 +10,8 @@ import UIKit
 import MapKit
 
 protocol RiderViewControllerProtocol {
-    func navigationControllerHideTitle () 
+    func navigationControllerHideTitle ()
+    func setMap() 
 }
 
 class RiderViewController: UIViewController, RiderViewControllerProtocol {
@@ -25,7 +26,7 @@ class RiderViewController: UIViewController, RiderViewControllerProtocol {
         let logOutButton: UIBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutFromRider))
         self.navigationItem.rightBarButtonItem = logOutButton
         
-        
+        setMap()
     }
 
     @objc func logoutFromRider() {
@@ -41,6 +42,11 @@ class RiderViewController: UIViewController, RiderViewControllerProtocol {
     
     @IBAction func callAnUberButton(_ sender: UIButton) {
         self.riderPresenter?.callAnUberButton()
+    }
+    
+    
+    func setMap() {
+        LocationManager.shared.setMap(map: self.mapView)
     }
 
 }

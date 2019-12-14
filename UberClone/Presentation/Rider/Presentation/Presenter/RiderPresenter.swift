@@ -27,6 +27,7 @@ class RiderPresenter: RiderPresenterProtocol {
     
     func viewWillAppear() {
         self.view?.navigationControllerHideTitle()
+        self.view?.setMap()
     }
     
     func logoutFromRider () {

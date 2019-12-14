@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         FirebaseManager.shared.startConfiguration()
-        
+        LocationManager.shared.locationReference()
+
         let initialVC = appAssembly.coreAssembly.loginAssembly.viewController()
         appAssembly.window.rootViewController = appAssembly.navigationController
         appAssembly.navigationController.pushViewController(initialVC, animated: false)

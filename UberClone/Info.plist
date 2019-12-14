@@ -39,5 +39,11 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>UberClone necesita tu ubicacion para poder mandar un Uber ¿Nos das acceso a tu ubicacion?. Siempre podras volver a cambiar estos persmisos de acceso en los ajustes del sistema</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>UberClone necesita tu ubicacion para poder mandar un Uber ¿Nos das acceso a tu ubicacion?. Siempre podras volver a cambiar estos persmisos de acceso en los ajustes del sistema</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>UberClone necesita tu ubicacion para poder mandar un Uber ¿Nos das acceso a tu ubicacion?. Siempre podras volver a cambiar estos persmisos de acceso en los ajustes del sistema</string>
 </dict>
 </plist>
