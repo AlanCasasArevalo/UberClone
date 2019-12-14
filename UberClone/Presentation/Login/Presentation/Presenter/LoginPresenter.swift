@@ -29,7 +29,7 @@ class LoginPresenter: LoginPresenterProtocol {
     }
     
     func viewWillAppear() {
-        
+        self.loginView?.showPassengerRolSwitchAndDriver()
     }
     
     func switchButtonsAndSwitchPresenter (signInButtonTitle: String, registerButtonTitle: String) {

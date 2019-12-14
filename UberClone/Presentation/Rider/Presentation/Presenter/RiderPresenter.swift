@@ -11,6 +11,8 @@ import Foundation
 protocol RiderPresenterProtocol {
     func viewDidLoad ()
     func viewWillAppear ()
+    func logoutFromRider ()
+    func callAnUberButton ()
 }
 
 class RiderPresenter: RiderPresenterProtocol {
@@ -24,6 +26,15 @@ class RiderPresenter: RiderPresenterProtocol {
     }
     
     func viewWillAppear() {
+        self.view?.navigationControllerHideTitle()
+    }
+    
+    func logoutFromRider () {
         
     }
+    
+    func callAnUberButton () {
+        
+    }
+
 }
