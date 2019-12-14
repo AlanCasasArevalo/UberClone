@@ -58,6 +58,18 @@ class FirebaseManager {
         }
     }
     
+    func logout () {
+        try? Auth.auth().signOut()
+    }
     
+    func removeObserver (toggleToChange: inout Bool?) {
+        let currentEmail = getCurrentUserEmail()
+        Database.database().reference().child("RideRequest").queryOrdered(byChild: "email").queryEqual(toValue: currentEmail).observe(.childAdded, with: { (snapShot) in
+            Database.database().reference().child("RideRequest").removeAllObservers()
+        }) { (error) in
+            print(error.localizedDescription)
+        }
+        toggleToChange?.toggle()
+    }
     
 }

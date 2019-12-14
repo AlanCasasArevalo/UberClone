@@ -36,6 +36,11 @@ class LocationManager: NSObject {
             locationManager?.startUpdatingLocation()
         }
         
+        
+    }
+    
+    func removeObserver(toggleToChange: inout Bool?) {
+        FirebaseManager.shared.removeObserver(toggleToChange: &toggleToChange)
     }
 
     static func locationStatus() -> LocationState {

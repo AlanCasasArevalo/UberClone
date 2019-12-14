@@ -12,6 +12,7 @@ import MapKit
 protocol RiderViewControllerProtocol {
     func navigationControllerHideTitle ()
     func setInitialViewValues (callAnUberButtonTitle: String)
+    func dismissFromNavigationController ()
     func setMap() 
 }
 
@@ -57,6 +58,10 @@ class RiderViewController: UIViewController, RiderViewControllerProtocol {
     
     func setMap() {
         LocationManager.shared.setMap(map: self.mapView)
+    }
+
+    func dismissFromNavigationController () {
+        self.navigationController?.popViewController(animated: true)
     }
 
 }
