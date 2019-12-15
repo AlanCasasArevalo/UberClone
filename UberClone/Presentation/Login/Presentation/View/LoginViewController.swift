@@ -32,11 +32,17 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
         super.viewDidLoad()
 
         self.loginPresenter?.viewDidLoad()
+        registerTextFieldDelegates()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.loginPresenter?.viewWillAppear()
+    }
+    
+    func registerTextFieldDelegates () {
+        emailTextField.delegate = self
+        passwordTextField.delegate = self
     }
 
     @IBAction func signInButton(_ sender: UIButton) {
@@ -84,5 +90,16 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
 extension LoginViewController {
     func navigationControllerPopToViewController (viewController: UIViewController) {
         self.navigationController?.pushViewController(viewController, animated: true)
+    }
+}
+
+extension LoginViewController : UITextFieldDelegate {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return true
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }
