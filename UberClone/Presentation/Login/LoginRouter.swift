@@ -9,16 +9,23 @@
 import Foundation
 protocol LoginRouterProtocol {
     func navigationToRiderMap ()
+    func navigationToDriverView ()
 }
 
 class LoginRouter: LoginRouterProtocol {
     
     var loginView: LoginViewControllerProtocol?
     var riderAssembly: RiderAssemby!
+    var driverAssembly: DriverAssemby!
 
     func navigationToRiderMap () {
         self.loginView?.navigationControllerPopToViewController(viewController: self.riderAssembly.viewController())
     }
+    
+    func navigationToDriverView () {
+        self.loginView?.navigationControllerPopToViewController(viewController: self.driverAssembly.viewController())
+    }
+    
 }
 
 

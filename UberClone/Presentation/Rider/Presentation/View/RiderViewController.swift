@@ -27,7 +27,7 @@ class RiderViewController: UIViewController, RiderViewControllerProtocol {
         super.viewDidLoad()
         self.riderPresenter?.viewDidLoad()
         let logOutButton: UIBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutFromRider))
-        self.navigationItem.rightBarButtonItem = logOutButton
+        self.navigationItem.leftBarButtonItem = logOutButton
         setMap()
     }
     

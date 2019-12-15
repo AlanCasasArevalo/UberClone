@@ -11,9 +11,12 @@ import UIKit
 final public class LoginAssembly {
     
     private let riderAssembly: RiderAssemby
+    private let driverAssembly: DriverAssemby
+
     
-    init(riderAssembly: RiderAssemby) {
+    init(riderAssembly: RiderAssemby, driverAssembly: DriverAssemby) {
         self.riderAssembly = riderAssembly
+        self.driverAssembly = driverAssembly
     }
     
     final public func viewController () -> UIViewController {
@@ -25,14 +28,15 @@ final public class LoginAssembly {
     func presenter (view: LoginViewControllerProtocol) -> LoginPresenterProtocol {
         let presenter = LoginPresenter()
         presenter.loginView = view
-        presenter.loginRouter = router(view: view, riderAssembly: self.riderAssembly)
+        presenter.loginRouter = router(view: view, riderAssembly: self.riderAssembly, driverAssembly: self.driverAssembly)
         presenter.loginInteractor = interactor()
         return presenter
     }
     
-    func router (view: LoginViewControllerProtocol, riderAssembly: RiderAssemby) -> LoginRouterProtocol {
+    func router (view: LoginViewControllerProtocol, riderAssembly: RiderAssemby, driverAssembly: DriverAssemby) -> LoginRouterProtocol {
         let router = LoginRouter ()
         router.riderAssembly = riderAssembly
+        router.driverAssembly = driverAssembly
         router.loginView = view
         return router
     }

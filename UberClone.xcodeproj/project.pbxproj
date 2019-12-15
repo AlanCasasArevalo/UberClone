@@ -23,6 +23,13 @@
 		5169AA3C239ED1260054D16A /* LoginProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169AA3B239ED1260054D16A /* LoginProvider.swift */; };
 		5169AA40239EEC790054D16A /* UIViewControllers+Alerts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169AA3F239EEC790054D16A /* UIViewControllers+Alerts.swift */; };
 		51D7617923A4FD90004FDB6B /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7617823A4FD90004FDB6B /* LocationManager.swift */; };
+		51D7617D23A647FA004FDB6B /* DriverAssemby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7617C23A647FA004FDB6B /* DriverAssemby.swift */; };
+		51D7618323A64858004FDB6B /* DriverInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7618223A64858004FDB6B /* DriverInteractor.swift */; };
+		51D7618523A64864004FDB6B /* DriverRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7618423A64864004FDB6B /* DriverRouter.swift */; };
+		51D7618723A64909004FDB6B /* DriverProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7618623A64909004FDB6B /* DriverProvider.swift */; };
+		51D7618923A64965004FDB6B /* DriverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7618823A64965004FDB6B /* DriverPresenter.swift */; };
+		51D7618C23A649DD004FDB6B /* DriverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7618A23A649DD004FDB6B /* DriverTableViewController.swift */; };
+		51D7618D23A649DD004FDB6B /* DriverTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D7618B23A649DD004FDB6B /* DriverTableViewController.xib */; };
 		51FAF01923A1757F00ECB99E /* RiderAssemby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF01823A1757F00ECB99E /* RiderAssemby.swift */; };
 		51FAF02323A17D8D00ECB99E /* RiderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF02223A17D8D00ECB99E /* RiderPresenter.swift */; };
 		51FAF02523A17D9700ECB99E /* RiderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF02423A17D9700ECB99E /* RiderRouter.swift */; };
@@ -53,6 +60,13 @@
 		5169AA3B239ED1260054D16A /* LoginProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginProvider.swift; sourceTree = "<group>"; };
 		5169AA3F239EEC790054D16A /* UIViewControllers+Alerts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewControllers+Alerts.swift"; sourceTree = "<group>"; };
 		51D7617823A4FD90004FDB6B /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		51D7617C23A647FA004FDB6B /* DriverAssemby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverAssemby.swift; sourceTree = "<group>"; };
+		51D7618223A64858004FDB6B /* DriverInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverInteractor.swift; sourceTree = "<group>"; };
+		51D7618423A64864004FDB6B /* DriverRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverRouter.swift; sourceTree = "<group>"; };
+		51D7618623A64909004FDB6B /* DriverProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverProvider.swift; sourceTree = "<group>"; };
+		51D7618823A64965004FDB6B /* DriverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPresenter.swift; sourceTree = "<group>"; };
+		51D7618A23A649DD004FDB6B /* DriverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTableViewController.swift; sourceTree = "<group>"; };
+		51D7618B23A649DD004FDB6B /* DriverTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverTableViewController.xib; sourceTree = "<group>"; };
 		51FAF01823A1757F00ECB99E /* RiderAssemby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderAssemby.swift; sourceTree = "<group>"; };
 		51FAF02223A17D8D00ECB99E /* RiderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderPresenter.swift; sourceTree = "<group>"; };
 		51FAF02423A17D9700ECB99E /* RiderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderRouter.swift; sourceTree = "<group>"; };
@@ -138,6 +152,60 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		51D7617A23A647D6004FDB6B /* Driver */ = {
+			isa = PBXGroup;
+			children = (
+				51D7618423A64864004FDB6B /* DriverRouter.swift */,
+				51D7617F23A64817004FDB6B /* Repository */,
+				51D7617E23A64809004FDB6B /* Presentation */,
+				51D7617B23A647E3004FDB6B /* DI */,
+			);
+			path = Driver;
+			sourceTree = "<group>";
+		};
+		51D7617B23A647E3004FDB6B /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				51D7617C23A647FA004FDB6B /* DriverAssemby.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		51D7617E23A64809004FDB6B /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				51D7618123A64831004FDB6B /* Presenter */,
+				51D7618023A6482B004FDB6B /* View */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		51D7617F23A64817004FDB6B /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				51D7618223A64858004FDB6B /* DriverInteractor.swift */,
+				51D7618623A64909004FDB6B /* DriverProvider.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		51D7618023A6482B004FDB6B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				51D7618A23A649DD004FDB6B /* DriverTableViewController.swift */,
+				51D7618B23A649DD004FDB6B /* DriverTableViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		51D7618123A64831004FDB6B /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				51D7618823A64965004FDB6B /* DriverPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
 		51FAF01523A1751300ECB99E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -150,6 +218,8 @@
 		51FAF01623A1753000ECB99E /* Rider */ = {
 			isa = PBXGroup;
 			children = (
+				51FAF02423A17D9700ECB99E /* RiderRouter.swift */,
+				51FAF02B23A17DD800ECB99E /* Repository */,
 				51FAF01F23A178A100ECB99E /* Presentation */,
 				51FAF01A23A1785900ECB99E /* DI */,
 			);
@@ -159,6 +229,7 @@
 		51FAF01723A1755E00ECB99E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				51D7617A23A647D6004FDB6B /* Driver */,
 				51FAF01623A1753000ECB99E /* Rider */,
 				5169AA2E239EB6800054D16A /* Login */,
 			);
@@ -212,8 +283,6 @@
 			children = (
 				51FAF02123A178B200ECB99E /* View */,
 				51FAF02023A178AB00ECB99E /* Presenter */,
-				51FAF02423A17D9700ECB99E /* RiderRouter.swift */,
-				51FAF02B23A17DD800ECB99E /* Repository */,
 			);
 			path = Presentation;
 			sourceTree = "<group>";
@@ -333,6 +402,7 @@
 				5169AA32239EB6A90054D16A /* LoginViewController.xib in Resources */,
 				5169AA15239EAA000054D16A /* LaunchScreen.storyboard in Resources */,
 				5169AA12239EAA000054D16A /* Assets.xcassets in Resources */,
+				51D7618D23A649DD004FDB6B /* DriverTableViewController.xib in Resources */,
 				5169AA2D239EB3F00054D16A /* GoogleService-Info.plist in Resources */,
 				51FAF02F23A17E6E00ECB99E /* RiderViewController.xib in Resources */,
 			);
@@ -393,12 +463,17 @@
 				5169AA34239EB6B30054D16A /* LoginPresenter.swift in Sources */,
 				5169AA28239EB1BC0054D16A /* FirebaseManager.swift in Sources */,
 				5169AA1F239EAC930054D16A /* CoreAssembly.swift in Sources */,
+				51D7618923A64965004FDB6B /* DriverPresenter.swift in Sources */,
 				5169AA40239EEC790054D16A /* UIViewControllers+Alerts.swift in Sources */,
+				51D7618C23A649DD004FDB6B /* DriverTableViewController.swift in Sources */,
+				51D7618323A64858004FDB6B /* DriverInteractor.swift in Sources */,
 				51FAF02723A17DA300ECB99E /* RiderInteractor.swift in Sources */,
+				51D7618723A64909004FDB6B /* DriverProvider.swift in Sources */,
 				5169AA0B239EA9FF0054D16A /* AppDelegate.swift in Sources */,
 				5169AA38239EB6C60054D16A /* LoginInteractor.swift in Sources */,
 				5169AA31239EB6A90054D16A /* LoginViewController.swift in Sources */,
 				51D7617923A4FD90004FDB6B /* LocationManager.swift in Sources */,
+				51D7618523A64864004FDB6B /* DriverRouter.swift in Sources */,
 				51FAF02523A17D9700ECB99E /* RiderRouter.swift in Sources */,
 				51FAF01923A1757F00ECB99E /* RiderAssemby.swift in Sources */,
 				51FAF02E23A17E6E00ECB99E /* RiderViewController.swift in Sources */,
@@ -408,6 +483,7 @@
 				5169AA1D239EAC5C0054D16A /* AppAssembly.swift in Sources */,
 				51FAF02323A17D8D00ECB99E /* RiderPresenter.swift in Sources */,
 				51FAF02923A17DAF00ECB99E /* RiderProvider.swift in Sources */,
+				51D7617D23A647FA004FDB6B /* DriverAssemby.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

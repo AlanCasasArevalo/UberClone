@@ -78,10 +78,8 @@ class LoginPresenter: LoginPresenterProtocol {
                 var displayName = ""
                 if isDriver {
                     // Driver
-                    displayName = "Driver"
-                    
-                    // we should navigation to other screen
-                    
+                    displayName = "Driver"                    
+                    self.loginRouter?.navigationToDriverView()
                 } else {
                     // Rider
                     displayName = "Rider"

@@ -12,8 +12,9 @@ final public class CoreAssembly {
     
     private let navigationController: UINavigationController
     
-    private(set) lazy var loginAssembly = LoginAssembly(riderAssembly: riderAssembly)
+    private(set) lazy var loginAssembly = LoginAssembly(riderAssembly: riderAssembly, driverAssembly: driverAssembly)
     private(set) lazy var riderAssembly = RiderAssemby()
+    private(set) lazy var driverAssembly = DriverAssemby()
     
     public init(navigationController: UINavigationController) {
         self.navigationController = navigationController
