@@ -72,4 +72,14 @@ class FirebaseManager {
         toggleToChange?.toggle()
     }
     
+    func createProfileChangeRequest (displayName: String) {
+        let requestProfileChangeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+        requestProfileChangeRequest?.displayName = displayName
+        requestProfileChangeRequest?.commitChanges(completion: { (error) in
+            if error != nil {
+                print(error?.localizedDescription)
+            }
+        })
+    }
+    
 }

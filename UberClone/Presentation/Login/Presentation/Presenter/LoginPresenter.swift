@@ -14,7 +14,7 @@ protocol LoginPresenterProtocol {
     func viewWillAppear ()
     func switchButtonsAndSwitchPresenter (signInButtonTitle: String, registerButtonTitle: String)
     func createNewUser(withEmail: String, password: String)
-    func signIn(withEmail: String, password: String)
+    func signIn(withEmail: String, password: String, isDriver: Bool)
 }
 
 class LoginPresenter: LoginPresenterProtocol {
@@ -70,11 +70,26 @@ class LoginPresenter: LoginPresenterProtocol {
         })
     }
     
-    func signIn(withEmail: String, password: String) {
+    func signIn(withEmail: String, password: String, isDriver: Bool) {
+        
+        
         loginInteractor?.signIn(withEmail: withEmail, password: password, success: { (success) in
             self.loginView?.showAlertWithArguments(alertTitle: "Success", alertMessage: success ?? "", actionTitle: "Ok", okCompletionHandler: { (action) in
-                // Navigation to Rider Map
-                self.loginRouter?.navigationToRiderMap()
+                var displayName = ""
+                if isDriver {
+                    // Driver
+                    displayName = "Driver"
+                    
+                    // we should navigation to other screen
+                    
+                } else {
+                    // Rider
+                    displayName = "Rider"
+                    // Navigation to Rider Map
+                    self.loginRouter?.navigationToRiderMap()
+                }
+                FirebaseManager.shared.createProfileChangeRequest(displayName: displayName)
+
             }, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
         }, failure: { (error) in
             self.loginView?.showAlertWithArguments(alertTitle: "Error", alertMessage: error ?? "", actionTitle: "OK", okCompletionHandler: nil, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
