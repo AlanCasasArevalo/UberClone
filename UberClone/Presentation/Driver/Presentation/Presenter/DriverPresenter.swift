@@ -11,6 +11,7 @@ import Foundation
 protocol DriverPresenterProtocol {
     func viewDidLoad ()
     func viewWillAppear ()
+    func logoutFromDriver ()
 }
 
 class DriverPresenter: DriverPresenterProtocol {
@@ -26,6 +27,11 @@ class DriverPresenter: DriverPresenterProtocol {
     func viewWillAppear() {
     }
     
+
+   func logoutFromDriver () {
+       FirebaseManager.shared.logout()
+       self.view?.dismissFromNavigationController()
+   }
    
 
 }

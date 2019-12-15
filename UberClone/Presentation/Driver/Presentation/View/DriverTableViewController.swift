@@ -9,7 +9,7 @@
 import UIKit
 
 protocol DriverTableViewControllerProtocol {
-    
+    func dismissFromNavigationController () 
 }
 
 class DriverTableViewController: UITableViewController, DriverTableViewControllerProtocol {
@@ -18,9 +18,20 @@ class DriverTableViewController: UITableViewController, DriverTableViewControlle
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let logOutButton: UIBarButtonItem = UIBarButtonItem(title: "Logout", style: .plain, target: self, action: #selector(logoutFromRider))
+        self.navigationItem.leftBarButtonItem = logOutButton
 
     }
+    
+    @objc func logoutFromRider() {
+        self.presenter?.logoutFromDriver()
+    }
+    
+    func dismissFromNavigationController () {
+        self.navigationController?.popViewController(animated: true)
+    }
 
+    
     // MARK: - Table view data source
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 0
