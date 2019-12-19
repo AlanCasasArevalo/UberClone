@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		510A3A5C23ABFD7E004CF7C2 /* NibName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510A3A5B23ABFD7E004CF7C2 /* NibName.swift */; };
+		510A3A6023ABFE65004CF7C2 /* DriverViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510A3A5E23ABFE65004CF7C2 /* DriverViewCell.swift */; };
+		510A3A6123ABFE65004CF7C2 /* DriverViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 510A3A5F23ABFE65004CF7C2 /* DriverViewCell.xib */; };
 		5169AA0B239EA9FF0054D16A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5169AA0A239EA9FF0054D16A /* AppDelegate.swift */; };
 		5169AA12239EAA000054D16A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5169AA11239EAA000054D16A /* Assets.xcassets */; };
 		5169AA15239EAA000054D16A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5169AA13239EAA000054D16A /* LaunchScreen.storyboard */; };
@@ -30,6 +33,7 @@
 		51D7618923A64965004FDB6B /* DriverPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7618823A64965004FDB6B /* DriverPresenter.swift */; };
 		51D7618C23A649DD004FDB6B /* DriverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7618A23A649DD004FDB6B /* DriverTableViewController.swift */; };
 		51D7618D23A649DD004FDB6B /* DriverTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D7618B23A649DD004FDB6B /* DriverTableViewController.xib */; };
+		51D7619023A654AF004FDB6B /* RiderRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7618F23A654AF004FDB6B /* RiderRequestEntity.swift */; };
 		51FAF01923A1757F00ECB99E /* RiderAssemby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF01823A1757F00ECB99E /* RiderAssemby.swift */; };
 		51FAF02323A17D8D00ECB99E /* RiderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF02223A17D8D00ECB99E /* RiderPresenter.swift */; };
 		51FAF02523A17D9700ECB99E /* RiderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF02423A17D9700ECB99E /* RiderRouter.swift */; };
@@ -42,6 +46,9 @@
 
 /* Begin PBXFileReference section */
 		3C3FA0898D679D2ACBC71152 /* Pods-UberClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-UberClone/Pods-UberClone.release.xcconfig"; sourceTree = "<group>"; };
+		510A3A5B23ABFD7E004CF7C2 /* NibName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibName.swift; sourceTree = "<group>"; };
+		510A3A5E23ABFE65004CF7C2 /* DriverViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewCell.swift; sourceTree = "<group>"; };
+		510A3A5F23ABFE65004CF7C2 /* DriverViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverViewCell.xib; sourceTree = "<group>"; };
 		5169AA07239EA9FF0054D16A /* UberClone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = UberClone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5169AA0A239EA9FF0054D16A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5169AA11239EAA000054D16A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -67,6 +74,7 @@
 		51D7618823A64965004FDB6B /* DriverPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverPresenter.swift; sourceTree = "<group>"; };
 		51D7618A23A649DD004FDB6B /* DriverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTableViewController.swift; sourceTree = "<group>"; };
 		51D7618B23A649DD004FDB6B /* DriverTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverTableViewController.xib; sourceTree = "<group>"; };
+		51D7618F23A654AF004FDB6B /* RiderRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderRequestEntity.swift; sourceTree = "<group>"; };
 		51FAF01823A1757F00ECB99E /* RiderAssemby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderAssemby.swift; sourceTree = "<group>"; };
 		51FAF02223A17D8D00ECB99E /* RiderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderPresenter.swift; sourceTree = "<group>"; };
 		51FAF02423A17D9700ECB99E /* RiderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderRouter.swift; sourceTree = "<group>"; };
@@ -90,6 +98,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		510A3A5D23ABFE35004CF7C2 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				510A3A5B23ABFD7E004CF7C2 /* NibName.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
 		5169A9FE239EA9FF0054D16A = {
 			isa = PBXGroup;
 			children = (
@@ -116,6 +132,7 @@
 				5169AA0A239EA9FF0054D16A /* AppDelegate.swift */,
 				5169AA1C239EAC5C0054D16A /* AppAssembly.swift */,
 				5169AA1E239EAC930054D16A /* CoreAssembly.swift */,
+				51D7618E23A6548D004FDB6B /* Data */,
 				51FAF01723A1755E00ECB99E /* Presentation */,
 				51FAF01523A1751300ECB99E /* Managers */,
 				5169AA11239EAA000054D16A /* Assets.xcassets */,
@@ -140,6 +157,9 @@
 			isa = PBXGroup;
 			children = (
 				5169AA3E239EEC610054D16A /* Extensions */,
+				510A3A5D23ABFE35004CF7C2 /* Constants */,
+				510A3A5E23ABFE65004CF7C2 /* DriverViewCell.swift */,
+				510A3A5F23ABFE65004CF7C2 /* DriverViewCell.xib */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -204,6 +224,14 @@
 				51D7618823A64965004FDB6B /* DriverPresenter.swift */,
 			);
 			path = Presenter;
+			sourceTree = "<group>";
+		};
+		51D7618E23A6548D004FDB6B /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				51D7618F23A654AF004FDB6B /* RiderRequestEntity.swift */,
+			);
+			path = Data;
 			sourceTree = "<group>";
 		};
 		51FAF01523A1751300ECB99E /* Managers */ = {
@@ -405,6 +433,7 @@
 				51D7618D23A649DD004FDB6B /* DriverTableViewController.xib in Resources */,
 				5169AA2D239EB3F00054D16A /* GoogleService-Info.plist in Resources */,
 				51FAF02F23A17E6E00ECB99E /* RiderViewController.xib in Resources */,
+				510A3A6123ABFE65004CF7C2 /* DriverViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -462,9 +491,12 @@
 			files = (
 				5169AA34239EB6B30054D16A /* LoginPresenter.swift in Sources */,
 				5169AA28239EB1BC0054D16A /* FirebaseManager.swift in Sources */,
+				510A3A6023ABFE65004CF7C2 /* DriverViewCell.swift in Sources */,
 				5169AA1F239EAC930054D16A /* CoreAssembly.swift in Sources */,
 				51D7618923A64965004FDB6B /* DriverPresenter.swift in Sources */,
+				51D7619023A654AF004FDB6B /* RiderRequestEntity.swift in Sources */,
 				5169AA40239EEC790054D16A /* UIViewControllers+Alerts.swift in Sources */,
+				510A3A5C23ABFD7E004CF7C2 /* NibName.swift in Sources */,
 				51D7618C23A649DD004FDB6B /* DriverTableViewController.swift in Sources */,
 				51D7618323A64858004FDB6B /* DriverInteractor.swift in Sources */,
 				51FAF02723A17DA300ECB99E /* RiderInteractor.swift in Sources */,

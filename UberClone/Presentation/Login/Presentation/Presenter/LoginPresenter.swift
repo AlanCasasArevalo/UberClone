@@ -70,9 +70,7 @@ class LoginPresenter: LoginPresenterProtocol {
         })
     }
     
-    func signIn(withEmail: String, password: String, isDriver: Bool) {
-        
-        
+    func signIn(withEmail: String, password: String, isDriver: Bool) {        
         loginInteractor?.signIn(withEmail: withEmail, password: password, success: { (success) in
             self.loginView?.showAlertWithArguments(alertTitle: "Success", alertMessage: success ?? "", actionTitle: "Ok", okCompletionHandler: { (action) in
                 var displayName = ""

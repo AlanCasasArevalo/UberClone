@@ -10,7 +10,11 @@ import Foundation
 
 
 protocol DriverProviderProtocol {
+    func getAllRiderPetitions(success: @escaping (RiderRequestEntities?) -> Void, failure: @escaping(String?) -> Void)
 }
 
 class DriverProvider: DriverProviderProtocol {
+    func getAllRiderPetitions (success: @escaping (RiderRequestEntities?) -> Void, failure: @escaping(String?) -> Void) {
+        FirebaseManager.shared.getAllRiderPetitions(success: success, failure: failure)
+    }
 }

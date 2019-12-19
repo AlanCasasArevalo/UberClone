@@ -57,7 +57,12 @@ class RiderPresenter: RiderPresenterProtocol {
         } else {
             let currentUserEmail = FirebaseManager.shared.getCurrentUserEmail()
             let currentUserLocation =  LocationManager.shared.getCurrentUserLocationUpdated()
-            FirebaseManager.shared.setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude(email: currentUserEmail, latitude: currentUserLocation.latitude, longitude: currentUserLocation.longitude)
+            
+            interactor?.setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude(withEmail: currentUserEmail, latitude: currentUserLocation.latitude, longitude: currentUserLocation.longitude, success: { (successResult) in
+                
+            }, failure: { (error) in
+                
+            })
         }
         uberHasBeenCalled?.toggle()
         setInitialViewValues()

@@ -82,4 +82,42 @@ class FirebaseManager {
         })
     }
     
+    func getAllRiderPetitions (success: @escaping (RiderRequestEntities?) -> Void, failure: @escaping(String?) -> Void) {
+        Database.database().reference().child("RideRequest").observe(.value, with: { (snapshot) in
+            let entities = self.transformSnapshotToEntity(snapshot: snapshot)
+            success(entities)
+        }) { (error) in
+            print(error.localizedDescription)
+            failure(error.localizedDescription)
+        }
+        
+    }
+    
+    func transformSnapshotToEntity (snapshot: DataSnapshot) -> RiderRequestEntities {
+        var email = ""
+        var latitude = 0.0
+        var longitude = 0.0
+        var riderRequestEntities = RiderRequestEntities()
+        let dataDictionary = snapshot.value as? [String: Any]
+        for dictionary in dataDictionary ?? [String: Any]() {
+            if let riderValues = dictionary.value as? [String: Any] {
+                for rider in riderValues {
+                    if rider.key == "email" {
+                        email = rider.value as? String ?? ""
+                    }
+                    if rider.key == "latitude" {
+                        latitude = rider.value as? Double ?? 0.0
+                    }
+                    if rider.key == "longitude" {
+                        longitude = rider.value as? Double ?? 0.0
+                    }
+                }
+                let entity = RiderRequestEntity(email: email, latitude: latitude, longitude: longitude)
+                riderRequestEntities.append(entity)
+            }
+        }
+        
+        return riderRequestEntities
+    }
+    
 }

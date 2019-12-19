@@ -9,9 +9,14 @@
 import Foundation
 
 protocol DriverInteractorProtocol {
+    func getAllRiderPetitions(success: @escaping (RiderRequestEntities?) -> Void, failure: @escaping(String?) -> Void)
 }
 
 class DriverInteractor: DriverInteractorProtocol {
     var provider: DriverProviderProtocol?
+    
+    func getAllRiderPetitions(success: @escaping (RiderRequestEntities?) -> Void, failure: @escaping(String?) -> Void) {
+        provider?.getAllRiderPetitions(success: success, failure: failure)
+    }
     
 }
