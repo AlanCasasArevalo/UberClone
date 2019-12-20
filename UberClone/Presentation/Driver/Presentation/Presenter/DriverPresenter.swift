@@ -12,6 +12,7 @@ protocol DriverPresenterProtocol {
     func viewDidLoad ()
     func viewWillAppear ()
     func logoutFromDriver ()
+    func getDistanceFromManager (distance: Double) -> String 
     var riderEntities: RiderRequestEntities? { get set }
 }
 
@@ -25,6 +26,7 @@ class DriverPresenter: DriverPresenterProtocol {
     
     func viewDidLoad() {
         getAllRiderPetitions()
+        reloadtableViewFromPresenter()        
     }
     
     func viewWillAppear() {
@@ -51,6 +53,21 @@ class DriverPresenter: DriverPresenterProtocol {
             self.view?.animationForActivityIndicator(animation: self.isActivityIndicatorActive)
             print(error)
         })
+    }
+    
+    func getDistanceFromManager (distance: Double) -> String {
+        let distanceInMeters = distance / 1000
+        if distanceInMeters < 1 {
+            return String(format: "%.2f", distanceInMeters * 1000) + " m"
+        } else {
+            return String(format: "%.2f", distanceInMeters) + " Km"
+        }
+    }
+        
+    func reloadtableViewFromPresenter () {
+        Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (timer) in
+            self.view?.reloadDataFromView()
+        }
     }
     
 }

@@ -93,17 +93,16 @@ class DriverTableViewController: UITableViewController, DriverTableViewControlle
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let entityModel = self.presenter?.riderEntities?[indexPath.row]
-        let cellModel = DriverViewCellModel(emailLabelText: entityModel?.email ?? "", latitudeLabelText: entityModel?.latitude ?? 0.0, longitudeLabelText: entityModel?.longitude ?? 0.0, identifier: NibName.driverViewCell)
-
+        let distance = self.presenter?.getDistanceFromManager(distance: entityModel?.distance ?? 0.0) ?? ""
+        let cellModel = DriverViewCellModel(emailLabelText: entityModel?.email ?? "", distanceLabelText: distance, identifier: NibName.driverViewCell)
         let cell = tableView.dequeueReusableCell(withIdentifier: NibName.driverViewCell, for: indexPath) as! DriverViewCell
-
         cell.setModel(model: cellModel)
         
         return cell
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 150
+        return 60        
     }
     
     func reloadDataFromView () {

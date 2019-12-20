@@ -14,4 +14,5 @@ struct RiderRequestEntity: Codable {
     let email: String?
     let latitude: Double?
     let longitude: Double?
+    var distance: Double?
 }

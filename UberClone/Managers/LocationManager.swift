@@ -35,12 +35,17 @@ class LocationManager: NSObject {
             locationManager?.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager?.startUpdatingLocation()
         }
-        
-        
     }
     
     func removeObserver(toggleToChange: inout Bool?) {
         FirebaseManager.shared.removeObserver(toggleToChange: &toggleToChange)
+    }
+    
+    func getDistanceFromCurrentUserToObjetive(latitude: Double, longitude: Double) -> Double {
+        let currentUserLocation = getCurrentUserLocationUpdated()
+        let currentLocation = CLLocation(latitude: currentUserLocation.latitude, longitude: currentUserLocation.longitude)
+        let objetiveLocation = CLLocation(latitude: latitude, longitude: longitude)
+        return currentLocation.distance(from: objetiveLocation)
     }
 
     static func locationStatus() -> LocationState {
@@ -97,12 +102,11 @@ class LocationManager: NSObject {
         map.removeAnnotations(map.annotations)
     }
     
-    func getCurrentUserLocationUpdated () -> CLLocationCoordinate2D{
+    func getCurrentUserLocationUpdated () -> CLLocationCoordinate2D {
         return currentUserLocation
     }
     
 }
-
 
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

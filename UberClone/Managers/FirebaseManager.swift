@@ -112,12 +112,13 @@ class FirebaseManager {
                         longitude = rider.value as? Double ?? 0.0
                     }
                 }
-                let entity = RiderRequestEntity(email: email, latitude: latitude, longitude: longitude)
+                let distance = LocationManager.shared.getDistanceFromCurrentUserToObjetive(latitude: latitude, longitude: longitude)
+                let entity = RiderRequestEntity(email: email, latitude: latitude, longitude: longitude, distance: distance)
                 riderRequestEntities.append(entity)
             }
         }
         
-        return riderRequestEntities
+        return riderRequestEntities.sorted(by: { $0.distance ?? 0.0 < $1.distance ?? 0.0 })
     }
     
 }

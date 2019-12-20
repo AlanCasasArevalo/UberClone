@@ -8,10 +8,13 @@
 
 import Foundation
 protocol DriverRouterProtocol {
+    func navigationToDetailRider ()
 }
 
 class DriverRouter: DriverRouterProtocol {
     var view: DriverTableViewControllerProtocol?
 
-    
+    func navigationToDetailRider() {
+        
+    }
 }

@@ -11,8 +11,7 @@ import UIKit
 class DriverViewCell: UITableViewCell {
 
     @IBOutlet weak var emailLabel: UILabel!
-    @IBOutlet weak var latitudeLabel: UILabel!
-    @IBOutlet weak var longitudeLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,8 +25,7 @@ class DriverViewCell: UITableViewCell {
     
     func setModel(model: DriverViewCellModel) {
         emailLabel.text = model.emailLabelText
-        latitudeLabel.text = "\(model.latitudeLabelText ?? 0.0)"
-        longitudeLabel.text = "\(model.longitudeLabelText ?? 0.0)"
+        distanceLabel.text = model.distanceLabelText
     }
     
 }
@@ -35,14 +33,12 @@ class DriverViewCell: UITableViewCell {
 class DriverViewCellModel {
     
     var emailLabelText: String?
-    var latitudeLabelText: Double?
-    var longitudeLabelText: Double?
+    var distanceLabelText: String?
     var identifier: String?
     
-    init(emailLabelText: String, latitudeLabelText: Double, longitudeLabelText: Double, identifier: String?) {
+    init(emailLabelText: String, distanceLabelText: String, identifier: String?) {
         self.emailLabelText = emailLabelText
-        self.latitudeLabelText = latitudeLabelText
-        self.longitudeLabelText = longitudeLabelText
+        self.distanceLabelText = distanceLabelText
         self.identifier = identifier
     }
     
