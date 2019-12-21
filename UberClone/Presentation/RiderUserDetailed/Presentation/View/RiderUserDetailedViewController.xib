@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14868" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14824"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RiderUserDetailedViewController" customModule="UberClone" customModuleProvider="target">
+            <connections>
+                <outlet property="riderAcceptRequestButton" destination="5C2-9U-Qkb" id="deK-oJ-EDD"/>
+                <outlet property="riderMapview" destination="SWk-CO-yne" id="gQ9-Xf-IWP"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="SWk-CO-yne">
+                    <rect key="frame" x="20" y="64" width="374" height="642"/>
+                </mapView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5C2-9U-Qkb">
+                    <rect key="frame" x="100" y="806" width="214" height="50"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="50" id="hYK-Yl-o7E"/>
+                    </constraints>
+                    <state key="normal" title="Button"/>
+                    <connections>
+                        <action selector="riderAcceptRequestButtonTouched:" destination="-1" eventType="touchUpInside" id="1jV-08-H9j"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="5C2-9U-Qkb" secondAttribute="bottom" constant="40" id="3eg-vi-Qus"/>
+                <constraint firstItem="5C2-9U-Qkb" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="100" id="43v-yo-ZLH"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="5C2-9U-Qkb" secondAttribute="trailing" constant="100" id="GcJ-Gt-esS"/>
+                <constraint firstItem="SWk-CO-yne" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="dxH-TX-7Mx"/>
+                <constraint firstItem="5C2-9U-Qkb" firstAttribute="top" secondItem="SWk-CO-yne" secondAttribute="bottom" constant="100" id="goZ-0C-5YV"/>
+                <constraint firstItem="SWk-CO-yne" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="h0f-8c-Gr9"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="SWk-CO-yne" secondAttribute="trailing" constant="20" id="if2-Ze-CV4"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="-497.10144927536237" y="-6.0267857142857144"/>
+        </view>
+    </objects>
+</document>

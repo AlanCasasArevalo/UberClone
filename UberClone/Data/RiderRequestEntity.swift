@@ -10,7 +10,7 @@ import Foundation
 
 typealias RiderRequestEntities = [RiderRequestEntity]
 
-struct RiderRequestEntity: Codable {
+public struct RiderRequestEntity: Codable {
     let email: String?
     let latitude: Double?
     let longitude: Double?

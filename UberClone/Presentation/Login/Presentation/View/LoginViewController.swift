@@ -53,10 +53,10 @@ class LoginViewController: UIViewController, LoginViewControllerProtocol {
                 if self.loginPresenter?.isSignUpLogin ?? false {
                     // Sign up
                     // Crear usuario de firebase
-                    self.loginPresenter?.createNewUser(withEmail: emailTextField.text ?? "", password: passwordTextField.text ?? "")
+                    self.loginPresenter?.createNewUser(withEmail: emailTextField.text ?? "", password: passwordTextField.text ?? "", isDriver: rolDriverRiderSwitch.isOn)
                 } else {
                     // Log in
-                    self.loginPresenter?.signIn(withEmail: emailTextField.text ?? "", password: passwordTextField.text ?? "", isDriver: rolDriverRiderSwitch.isOn)
+                    self.loginPresenter?.signIn(withEmail: emailTextField.text ?? "", password: passwordTextField.text ?? "")
                 }
             } else {
                 self.showAlertWithArguments(alertTitle: "Wrong password", alertMessage: "Password should have more than 8 characters", actionTitle: "Ok", okCompletionHandler: nil, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)

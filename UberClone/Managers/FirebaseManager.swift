@@ -82,6 +82,12 @@ class FirebaseManager {
         })
     }
     
+    func getDisplayName () -> String? {
+        return Auth.auth().currentUser?.displayName
+    }
+    
+    
+    
     func getAllRiderPetitions (success: @escaping (RiderRequestEntities?) -> Void, failure: @escaping(String?) -> Void) {
         Database.database().reference().child("RideRequest").observe(.value, with: { (snapshot) in
             let entities = self.transformSnapshotToEntity(snapshot: snapshot)

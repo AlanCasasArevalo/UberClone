@@ -8,13 +8,15 @@
 
 import Foundation
 protocol DriverRouterProtocol {
-    func navigationToDetailRider ()
+    func navigationToDetailRider(riderRequestEntity: RiderRequestEntity)
 }
 
 class DriverRouter: DriverRouterProtocol {
+    
     var view: DriverTableViewControllerProtocol?
-
-    func navigationToDetailRider() {
-        
+    var riderUserDetailedAssembly: RiderUserDetailedAssembly!
+    
+    func navigationToDetailRider(riderRequestEntity: RiderRequestEntity) {
+        self.view?.navigationControllerPopToViewController(viewController: riderUserDetailedAssembly.viewController(riderRequestEntity: riderRequestEntity))
     }
 }

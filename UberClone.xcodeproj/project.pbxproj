@@ -34,6 +34,13 @@
 		51D7618C23A649DD004FDB6B /* DriverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7618A23A649DD004FDB6B /* DriverTableViewController.swift */; };
 		51D7618D23A649DD004FDB6B /* DriverTableViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51D7618B23A649DD004FDB6B /* DriverTableViewController.xib */; };
 		51D7619023A654AF004FDB6B /* RiderRequestEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51D7618F23A654AF004FDB6B /* RiderRequestEntity.swift */; };
+		51E8FB8623AD5719000A2344 /* RiderUserDetailedAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E8FB8523AD5719000A2344 /* RiderUserDetailedAssembly.swift */; };
+		51E8FB8A23AD578B000A2344 /* RiderUserDetailedPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E8FB8923AD578B000A2344 /* RiderUserDetailedPresenter.swift */; };
+		51E8FB8C23AD57E1000A2344 /* RiderUserDetailedProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E8FB8B23AD57E1000A2344 /* RiderUserDetailedProvider.swift */; };
+		51E8FB8E23AD5818000A2344 /* RiderUserDetailedInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E8FB8D23AD5818000A2344 /* RiderUserDetailedInteractor.swift */; };
+		51E8FB9023AD5860000A2344 /* RiderUserDetailedRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E8FB8F23AD5860000A2344 /* RiderUserDetailedRouter.swift */; };
+		51E8FB9323AD58B3000A2344 /* RiderUserDetailedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51E8FB9123AD58B3000A2344 /* RiderUserDetailedViewController.swift */; };
+		51E8FB9423AD58B3000A2344 /* RiderUserDetailedViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 51E8FB9223AD58B3000A2344 /* RiderUserDetailedViewController.xib */; };
 		51FAF01923A1757F00ECB99E /* RiderAssemby.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF01823A1757F00ECB99E /* RiderAssemby.swift */; };
 		51FAF02323A17D8D00ECB99E /* RiderPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF02223A17D8D00ECB99E /* RiderPresenter.swift */; };
 		51FAF02523A17D9700ECB99E /* RiderRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51FAF02423A17D9700ECB99E /* RiderRouter.swift */; };
@@ -75,6 +82,13 @@
 		51D7618A23A649DD004FDB6B /* DriverTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverTableViewController.swift; sourceTree = "<group>"; };
 		51D7618B23A649DD004FDB6B /* DriverTableViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverTableViewController.xib; sourceTree = "<group>"; };
 		51D7618F23A654AF004FDB6B /* RiderRequestEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderRequestEntity.swift; sourceTree = "<group>"; };
+		51E8FB8523AD5719000A2344 /* RiderUserDetailedAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderUserDetailedAssembly.swift; sourceTree = "<group>"; };
+		51E8FB8923AD578B000A2344 /* RiderUserDetailedPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderUserDetailedPresenter.swift; sourceTree = "<group>"; };
+		51E8FB8B23AD57E1000A2344 /* RiderUserDetailedProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderUserDetailedProvider.swift; sourceTree = "<group>"; };
+		51E8FB8D23AD5818000A2344 /* RiderUserDetailedInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderUserDetailedInteractor.swift; sourceTree = "<group>"; };
+		51E8FB8F23AD5860000A2344 /* RiderUserDetailedRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderUserDetailedRouter.swift; sourceTree = "<group>"; };
+		51E8FB9123AD58B3000A2344 /* RiderUserDetailedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderUserDetailedViewController.swift; sourceTree = "<group>"; };
+		51E8FB9223AD58B3000A2344 /* RiderUserDetailedViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RiderUserDetailedViewController.xib; sourceTree = "<group>"; };
 		51FAF01823A1757F00ECB99E /* RiderAssemby.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderAssemby.swift; sourceTree = "<group>"; };
 		51FAF02223A17D8D00ECB99E /* RiderPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderPresenter.swift; sourceTree = "<group>"; };
 		51FAF02423A17D9700ECB99E /* RiderRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiderRouter.swift; sourceTree = "<group>"; };
@@ -158,8 +172,7 @@
 			children = (
 				5169AA3E239EEC610054D16A /* Extensions */,
 				510A3A5D23ABFE35004CF7C2 /* Constants */,
-				510A3A5E23ABFE65004CF7C2 /* DriverViewCell.swift */,
-				510A3A5F23ABFE65004CF7C2 /* DriverViewCell.xib */,
+				51E8FB8023AD56C5000A2344 /* DriverCell */,
 			);
 			path = Commons;
 			sourceTree = "<group>";
@@ -234,6 +247,69 @@
 			path = Data;
 			sourceTree = "<group>";
 		};
+		51E8FB8023AD56C5000A2344 /* DriverCell */ = {
+			isa = PBXGroup;
+			children = (
+				510A3A5E23ABFE65004CF7C2 /* DriverViewCell.swift */,
+				510A3A5F23ABFE65004CF7C2 /* DriverViewCell.xib */,
+			);
+			path = DriverCell;
+			sourceTree = "<group>";
+		};
+		51E8FB8123AD56D9000A2344 /* RiderUserDetailed */ = {
+			isa = PBXGroup;
+			children = (
+				51E8FB8423AD5708000A2344 /* DI */,
+				51E8FB8323AD5702000A2344 /* Presentation */,
+				51E8FB8223AD56F9000A2344 /* Repository */,
+				51E8FB8F23AD5860000A2344 /* RiderUserDetailedRouter.swift */,
+			);
+			path = RiderUserDetailed;
+			sourceTree = "<group>";
+		};
+		51E8FB8223AD56F9000A2344 /* Repository */ = {
+			isa = PBXGroup;
+			children = (
+				51E8FB8B23AD57E1000A2344 /* RiderUserDetailedProvider.swift */,
+				51E8FB8D23AD5818000A2344 /* RiderUserDetailedInteractor.swift */,
+			);
+			path = Repository;
+			sourceTree = "<group>";
+		};
+		51E8FB8323AD5702000A2344 /* Presentation */ = {
+			isa = PBXGroup;
+			children = (
+				51E8FB8823AD577B000A2344 /* View */,
+				51E8FB8723AD5773000A2344 /* Presenter */,
+			);
+			path = Presentation;
+			sourceTree = "<group>";
+		};
+		51E8FB8423AD5708000A2344 /* DI */ = {
+			isa = PBXGroup;
+			children = (
+				51E8FB8523AD5719000A2344 /* RiderUserDetailedAssembly.swift */,
+			);
+			path = DI;
+			sourceTree = "<group>";
+		};
+		51E8FB8723AD5773000A2344 /* Presenter */ = {
+			isa = PBXGroup;
+			children = (
+				51E8FB8923AD578B000A2344 /* RiderUserDetailedPresenter.swift */,
+			);
+			path = Presenter;
+			sourceTree = "<group>";
+		};
+		51E8FB8823AD577B000A2344 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				51E8FB9123AD58B3000A2344 /* RiderUserDetailedViewController.swift */,
+				51E8FB9223AD58B3000A2344 /* RiderUserDetailedViewController.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 		51FAF01523A1751300ECB99E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
@@ -257,6 +333,7 @@
 		51FAF01723A1755E00ECB99E /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				51E8FB8123AD56D9000A2344 /* RiderUserDetailed */,
 				51D7617A23A647D6004FDB6B /* Driver */,
 				51FAF01623A1753000ECB99E /* Rider */,
 				5169AA2E239EB6800054D16A /* Login */,
@@ -431,6 +508,7 @@
 				5169AA15239EAA000054D16A /* LaunchScreen.storyboard in Resources */,
 				5169AA12239EAA000054D16A /* Assets.xcassets in Resources */,
 				51D7618D23A649DD004FDB6B /* DriverTableViewController.xib in Resources */,
+				51E8FB9423AD58B3000A2344 /* RiderUserDetailedViewController.xib in Resources */,
 				5169AA2D239EB3F00054D16A /* GoogleService-Info.plist in Resources */,
 				51FAF02F23A17E6E00ECB99E /* RiderViewController.xib in Resources */,
 				510A3A6123ABFE65004CF7C2 /* DriverViewCell.xib in Resources */,
@@ -499,14 +577,17 @@
 				510A3A5C23ABFD7E004CF7C2 /* NibName.swift in Sources */,
 				51D7618C23A649DD004FDB6B /* DriverTableViewController.swift in Sources */,
 				51D7618323A64858004FDB6B /* DriverInteractor.swift in Sources */,
+				51E8FB9023AD5860000A2344 /* RiderUserDetailedRouter.swift in Sources */,
 				51FAF02723A17DA300ECB99E /* RiderInteractor.swift in Sources */,
 				51D7618723A64909004FDB6B /* DriverProvider.swift in Sources */,
 				5169AA0B239EA9FF0054D16A /* AppDelegate.swift in Sources */,
 				5169AA38239EB6C60054D16A /* LoginInteractor.swift in Sources */,
 				5169AA31239EB6A90054D16A /* LoginViewController.swift in Sources */,
 				51D7617923A4FD90004FDB6B /* LocationManager.swift in Sources */,
+				51E8FB9323AD58B3000A2344 /* RiderUserDetailedViewController.swift in Sources */,
 				51D7618523A64864004FDB6B /* DriverRouter.swift in Sources */,
 				51FAF02523A17D9700ECB99E /* RiderRouter.swift in Sources */,
+				51E8FB8A23AD578B000A2344 /* RiderUserDetailedPresenter.swift in Sources */,
 				51FAF01923A1757F00ECB99E /* RiderAssemby.swift in Sources */,
 				51FAF02E23A17E6E00ECB99E /* RiderViewController.swift in Sources */,
 				5169AA3C239ED1260054D16A /* LoginProvider.swift in Sources */,
@@ -514,8 +595,11 @@
 				5169AA3A239EB6D10054D16A /* LoginAssembly.swift in Sources */,
 				5169AA1D239EAC5C0054D16A /* AppAssembly.swift in Sources */,
 				51FAF02323A17D8D00ECB99E /* RiderPresenter.swift in Sources */,
+				51E8FB8C23AD57E1000A2344 /* RiderUserDetailedProvider.swift in Sources */,
 				51FAF02923A17DAF00ECB99E /* RiderProvider.swift in Sources */,
 				51D7617D23A647FA004FDB6B /* DriverAssemby.swift in Sources */,
+				51E8FB8E23AD5818000A2344 /* RiderUserDetailedInteractor.swift in Sources */,
+				51E8FB8623AD5719000A2344 /* RiderUserDetailedAssembly.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -584,7 +668,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -639,7 +723,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -654,6 +738,7 @@
 			baseConfigurationReference = AECA7F7E111AF5C613D3E40C /* Pods-UberClone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SW2XN6A7CB;
 				INFOPLIST_FILE = UberClone/Info.plist;
@@ -663,6 +748,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alancasasarevalo-gmail.UberClone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -673,6 +759,7 @@
 			baseConfigurationReference = 3C3FA0898D679D2ACBC71152 /* Pods-UberClone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SW2XN6A7CB;
 				INFOPLIST_FILE = UberClone/Info.plist;
@@ -682,6 +769,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "com.alancasasarevalo-gmail.UberClone";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

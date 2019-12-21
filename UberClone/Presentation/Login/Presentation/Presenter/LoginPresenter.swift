@@ -10,20 +10,22 @@ import Foundation
 
 protocol LoginPresenterProtocol {
     var isSignUpLogin: Bool { get set }
+    var isDriver:Bool? { get set }
     func viewDidLoad ()
     func viewWillAppear ()
     func switchButtonsAndSwitchPresenter (signInButtonTitle: String, registerButtonTitle: String)
-    func createNewUser(withEmail: String, password: String)
-    func signIn(withEmail: String, password: String, isDriver: Bool)
+    func createNewUser(withEmail: String, password: String, isDriver: Bool)
+    func signIn(withEmail: String, password: String)
 }
 
 class LoginPresenter: LoginPresenterProtocol {
     var loginView: LoginViewControllerProtocol?
     var loginRouter: LoginRouterProtocol?
     var loginInteractor: LoginInteractorProtocol?
+    var isDriver:Bool? = false
     
     var isSignUpLogin: Bool = false
-
+    
     func viewDidLoad() {
         
     }
@@ -50,7 +52,7 @@ class LoginPresenter: LoginPresenterProtocol {
             return ""
         }
     }
-
+    
     func setRegisterButtonTitle (title: String) -> String {
         switch title.lowercased() {
         case "Cambia para registrarte".lowercased():
@@ -62,36 +64,46 @@ class LoginPresenter: LoginPresenterProtocol {
         }
     }
     
-    func createNewUser(withEmail: String, password: String) {
+    func createNewUser(withEmail: String, password: String, isDriver: Bool) {
         loginInteractor?.createNewUser(withEmail: withEmail, password: password, success: { (success) in
             self.loginView?.showAlertWithArguments(alertTitle: "Success", alertMessage: success ?? "", actionTitle: "OK", okCompletionHandler: nil, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
+            var displayName = ""
+            if isDriver {
+                // Driver
+                displayName = "Driver"
+            } else {
+                // Rider
+                displayName = "Rider"
+            }
+            FirebaseManager.shared.createProfileChangeRequest(displayName: displayName)
+            
         }, failure: { (error) in
             self.loginView?.showAlertWithArguments(alertTitle: "Error", alertMessage: error ?? "", actionTitle: "OK", okCompletionHandler: nil, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
         })
     }
     
-    func signIn(withEmail: String, password: String, isDriver: Bool) {        
-        loginInteractor?.signIn(withEmail: withEmail, password: password, success: { (success) in
-            self.loginView?.showAlertWithArguments(alertTitle: "Success", alertMessage: success ?? "", actionTitle: "Ok", okCompletionHandler: { (action) in
-                var displayName = ""
-                if isDriver {
-                    // Driver
-                    displayName = "Driver"                    
-                    self.loginRouter?.navigationToDriverView()
-                } else {
-                    // Rider
-                    displayName = "Rider"
-                    // Navigation to Rider Map
-                    self.loginRouter?.navigationToRiderMap()
-                }
-                FirebaseManager.shared.createProfileChangeRequest(displayName: displayName)
+    func signIn(withEmail: String, password: String) {
 
+        
+        
+        self.loginInteractor?.signIn(withEmail: withEmail, password: password, success: { (success) in
+            self.loginView?.showAlertWithArguments(alertTitle: "Success", alertMessage: success ?? "", actionTitle: "Ok", okCompletionHandler: { (action) in
+                //Aqui se obtiene bien ele nombre
+                let displayName = FirebaseManager.shared.getDisplayName()
+                if displayName?.lowercased() == "Driver".lowercased() {
+                    // Driver
+                    self.loginRouter?.navigationToDriverView()
+                } else if displayName?.lowercased() == "Rider".lowercased() {
+                    // Rider
+                    self.loginRouter?.navigationToRiderMap()
+                } else {
+                    self.loginView?.showAlertWithArguments(alertTitle: "Error", alertMessage: "No se pudo obtener el rol", actionTitle: "OK", okCompletionHandler: nil, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
+                }
             }, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
         }, failure: { (error) in
             self.loginView?.showAlertWithArguments(alertTitle: "Error", alertMessage: error ?? "", actionTitle: "OK", okCompletionHandler: nil, cancelTitle: nil, cancelCompletionHandler: nil, presentationCompletion: nil)
         })
     }
-
 }
 
 

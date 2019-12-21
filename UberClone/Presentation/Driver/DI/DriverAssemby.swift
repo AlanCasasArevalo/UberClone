@@ -10,6 +10,12 @@ import UIKit
 
 final public class DriverAssemby {
 
+    private let riderUserDetailedAssembly: RiderUserDetailedAssembly
+    
+    init(riderUserDetailedAssembly: RiderUserDetailedAssembly) {
+        self.riderUserDetailedAssembly = riderUserDetailedAssembly
+    }
+    
     final public func viewController () -> UIViewController {
         let viewController = DriverTableViewController()
         viewController.presenter = presenter(viewController: viewController)
@@ -27,6 +33,7 @@ final public class DriverAssemby {
     func router (viewController: DriverTableViewControllerProtocol) -> DriverRouterProtocol {
         let router = DriverRouter()
         router.view = viewController
+        router.riderUserDetailedAssembly = self.riderUserDetailedAssembly
         return router
     }
     

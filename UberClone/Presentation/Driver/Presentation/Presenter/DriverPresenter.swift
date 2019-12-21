@@ -12,7 +12,8 @@ protocol DriverPresenterProtocol {
     func viewDidLoad ()
     func viewWillAppear ()
     func logoutFromDriver ()
-    func getDistanceFromManager (distance: Double) -> String 
+    func getDistanceFromManager (distance: Double) -> String
+    func navigationToRiderDetailed (riderRequestEntity: RiderRequestEntity)
     var riderEntities: RiderRequestEntities? { get set }
 }
 
@@ -68,6 +69,10 @@ class DriverPresenter: DriverPresenterProtocol {
         Timer.scheduledTimer(withTimeInterval: 3, repeats: true) { (timer) in
             self.view?.reloadDataFromView()
         }
+    }
+    
+    func navigationToRiderDetailed (riderRequestEntity: RiderRequestEntity) {
+        self.router?.navigationToDetailRider(riderRequestEntity: riderRequestEntity)
     }
     
 }
