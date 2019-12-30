@@ -12,6 +12,8 @@ protocol RiderUserDetailedPresenterProtocol {
     func viewDidLoad ()
     func viewWillAppear ()
     func viewDidDisappear()
+    func riderAcceptRequest()
+    func logout ()
 }
 
 class RiderUserDetailedPresenter: RiderUserDetailedPresenterProtocol {
@@ -35,4 +37,24 @@ class RiderUserDetailedPresenter: RiderUserDetailedPresenterProtocol {
         LocationManager.shared.setIsRiderUserDetailed(riderUserDetailed: false)
     }
 
+    func riderAcceptRequest() {
+        // Update the ride request
+        let driverLocation = LocationManager.shared.getCurrentUserLocationUpdated()
+        interactor?.acceptPerformRide(emailRequest: riderRequestEntity?.email ?? "", driverLatitude: driverLocation.latitude, driverLongitude: driverLocation.longitude, success: { (result) in
+            //Give direction
+            self.interactor?.openMapWithRiderAndDriver(email: self.riderRequestEntity?.email ?? "", success: { (result) in
+                
+            }, failure: { (error) in
+                print(error)
+            })
+        }, failure: { (error) in
+            print(error)
+        })
+    }
+    
+    func logout () {
+        FirebaseManager.shared.logout()
+    }
+
+    
 }

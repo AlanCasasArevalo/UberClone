@@ -136,6 +136,25 @@ class LocationManager: NSObject {
         return riderCurrentLocation
     }
 
+    func getReverseGeoCodeLocation (email: String, success: @escaping (String?) -> Void, failure: @escaping (String?) -> Void) {
+        let requestCLLocation = CLLocation(latitude: riderCurrentLocation.latitude, longitude: riderCurrentLocation.longitude)
+        CLGeocoder().reverseGeocodeLocation(requestCLLocation) { (placeMarks, error) in
+            if error != nil {
+                failure(error?.localizedDescription)
+            } else {
+                guard let placeMarksDes = placeMarks else { return }
+                if placeMarksDes.count > 0 {
+                    let placeMark = MKPlacemark(placemark: placeMarksDes.first!)
+                    let mapItem = MKMapItem(placemark: placeMark)
+                    mapItem.name = email
+                    let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
+                    mapItem.openInMaps(launchOptions: options)
+                }
+                
+            }
+        }
+        failure("Error al hacer la geolocalizacion inversa")
+    }
     
 }
 

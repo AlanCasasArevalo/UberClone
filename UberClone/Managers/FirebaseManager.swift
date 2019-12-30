@@ -86,7 +86,16 @@ class FirebaseManager {
         return Auth.auth().currentUser?.displayName
     }
     
-    
+    func acceptPerformRide (emailRequest: String, driverLatitude: Double, driverLongitude: Double, success: @escaping (String?) -> Void, failure: @escaping (String?) -> Void) {
+        Database.database().reference().child("RideRequest").queryOrdered(byChild: "email").queryEqual(toValue: emailRequest).observe(.childAdded, with: { (snapShot) in
+            snapShot.ref.updateChildValues(["driverLatitude" : driverLatitude, "driverLongitude": driverLongitude ])
+            Database.database().reference().child("RideRequest").removeAllObservers()
+            success("Carrera Aceptada")
+        }) { (error) in
+            print(error.localizedDescription)
+            failure(error.localizedDescription)
+        }
+    }
     
     func getAllRiderPetitions (success: @escaping (RiderRequestEntities?) -> Void, failure: @escaping(String?) -> Void) {
         Database.database().reference().child("RideRequest").observe(.value, with: { (snapshot) in

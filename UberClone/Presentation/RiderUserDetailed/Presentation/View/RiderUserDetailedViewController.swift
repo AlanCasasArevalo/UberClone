@@ -39,9 +39,15 @@ class RiderUserDetailedViewController: UIViewController, RiderUserDetailedViewCo
     }
     
     @IBAction func riderAcceptRequestButtonTouched(_ sender: UIButton) {
+        self.presenter?.riderAcceptRequest()
+    }
+    
+    func setupRiderAcceptRequestButton () {
+        self.riderAcceptRequestButton.setTitle("Aceptar carrera", for: .normal)
     }
     
     @objc func logout() {
+        self.presenter?.logout()
     }
     
     func setMap() {

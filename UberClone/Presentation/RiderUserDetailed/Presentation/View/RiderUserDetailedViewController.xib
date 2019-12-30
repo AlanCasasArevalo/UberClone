@@ -28,7 +28,7 @@
                     <constraints>
                         <constraint firstAttribute="height" constant="50" id="hYK-Yl-o7E"/>
                     </constraints>
-                    <state key="normal" title="Button"/>
+                    <state key="normal" title="_Aceptar carrera"/>
                     <connections>
                         <action selector="riderAcceptRequestButtonTouched:" destination="-1" eventType="touchUpInside" id="1jV-08-H9j"/>
                     </connections>
