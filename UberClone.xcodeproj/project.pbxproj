@@ -738,7 +738,7 @@
 			baseConfigurationReference = AECA7F7E111AF5C613D3E40C /* Pods-UberClone.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SW2XN6A7CB;
 				INFOPLIST_FILE = UberClone/Info.plist;
@@ -759,7 +759,7 @@
 			baseConfigurationReference = 3C3FA0898D679D2ACBC71152 /* Pods-UberClone.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "Apple Development";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = SW2XN6A7CB;
 				INFOPLIST_FILE = UberClone/Info.plist;

@@ -26,6 +26,7 @@ class LocationManager: NSObject {
     var region: MKCoordinateRegion?
     var currentUserLocation = CLLocationCoordinate2D()
     var riderCurrentLocation = CLLocationCoordinate2D()
+    
     var riderEmail = ""
     
     func locationReference () {
@@ -141,21 +142,26 @@ class LocationManager: NSObject {
 extension LocationManager: CLLocationManagerDelegate {
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let coordinate = manager.location?.coordinate {
-            let center = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
-            let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
-            let region = MKCoordinateRegion(center: center, span: span)
-            self.setRegion(region: region)
-            getLocationFromUserWithMapAndRegion()
-            removePreviousAnnotations()
-//            self.currentUserLocation = center
-//            setUserLocationPoint(latitude: coordinate.latitude, longitude: coordinate.longitude, title: "Estas aqui")
             if !isRiderUserDetailed {
+                let center = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
+                let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+                let region = MKCoordinateRegion(center: center, span: span)
+                self.setRegion(region: region)
+                getLocationFromUserWithMapAndRegion()
+                removePreviousAnnotations()
                 self.currentUserLocation = center
                 setUserLocationPoint(center: center, title: "Estas aqui")
             } else {
+                let center = CLLocationCoordinate2D(latitude: riderCurrentLocation.latitude, longitude: riderCurrentLocation.longitude)
+                let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
+                let region = MKCoordinateRegion(center: center, span: span)
+                self.setRegion(region: region)
+                getLocationFromUserWithMapAndRegion()
+                removePreviousAnnotations()
                 riderCurrentLocation = center
                 setUserLocationPoint(center: center, title: getRiderEmail())
             }
         }
     }
+    
 }

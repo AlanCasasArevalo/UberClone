@@ -27,7 +27,7 @@ class RiderUserDetailedPresenter: RiderUserDetailedPresenterProtocol {
     
     func viewWillAppear() {
         LocationManager.shared.setIsRiderUserDetailed(riderUserDetailed: true)
-        LocationManager.shared.updateRiderLocation(latitude: riderRequestEntity?.latitude ?? 0.0, longitude: riderRequestEntity?.longitude ?? 0.0)
+        LocationManager.shared.setRiderCurrentLocation(latitude: riderRequestEntity?.latitude ?? 0.0, longitude: riderRequestEntity?.longitude ?? 0.0)
         LocationManager.shared.setRiderEmail(title: riderRequestEntity?.email ?? "")
     }
     
