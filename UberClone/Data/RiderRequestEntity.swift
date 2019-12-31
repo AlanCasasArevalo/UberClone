@@ -15,4 +15,7 @@ public struct RiderRequestEntity: Codable {
     let latitude: Double?
     let longitude: Double?
     var distance: Double?
+    var driverLatitude: Double?
+    var driverLongitude: Double?
+    
 }

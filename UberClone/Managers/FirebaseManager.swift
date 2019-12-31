@@ -112,6 +112,8 @@ class FirebaseManager {
         var email = ""
         var latitude = 0.0
         var longitude = 0.0
+        var driverLatitude = 0.0
+        var driverLongitude = 0.0
         var riderRequestEntities = RiderRequestEntities()
         let dataDictionary = snapshot.value as? [String: Any]
         for dictionary in dataDictionary ?? [String: Any]() {
@@ -126,9 +128,15 @@ class FirebaseManager {
                     if rider.key == "longitude" {
                         longitude = rider.value as? Double ?? 0.0
                     }
+                    if rider.key == "driverLatitude" {
+                        driverLatitude = rider.value as? Double ?? 0.0
+                    }
+                    if rider.key == "driverLongitude" {
+                        driverLongitude = rider.value as? Double ?? 0.0
+                    }
                 }
                 let distance = LocationManager.shared.getDistanceFromCurrentUserToObjetive(latitude: latitude, longitude: longitude)
-                let entity = RiderRequestEntity(email: email, latitude: latitude, longitude: longitude, distance: distance)
+                let entity = RiderRequestEntity(email: email, latitude: latitude, longitude: longitude, distance: distance, driverLatitude: driverLatitude, driverLongitude: driverLongitude)
                 riderRequestEntities.append(entity)
             }
         }

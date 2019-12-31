@@ -45,7 +45,13 @@ class DriverPresenter: DriverPresenterProtocol {
     
     func getAllRiderPetitions () {
         self.interactor?.getAllRiderPetitions(success: { (requestsEntities) in
-            self.riderEntities = requestsEntities
+            self.riderEntities = RiderRequestEntities()
+            for entity in requestsEntities ?? [] {
+                if entity.driverLatitude == 0.0 && entity.driverLongitude == 0.0 {
+                    self.riderEntities?.append(entity)
+                }
+            }
+            
             self.view?.reloadDataFromView()
             self.isActivityIndicatorActive = false
             self.view?.animationForActivityIndicator(animation: self.isActivityIndicatorActive)
