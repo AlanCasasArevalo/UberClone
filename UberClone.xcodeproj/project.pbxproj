@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5108A5D323BB485500FE569C /* FirebaseConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5108A5D223BB485500FE569C /* FirebaseConstants.swift */; };
 		510A3A5C23ABFD7E004CF7C2 /* NibName.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510A3A5B23ABFD7E004CF7C2 /* NibName.swift */; };
 		510A3A6023ABFE65004CF7C2 /* DriverViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 510A3A5E23ABFE65004CF7C2 /* DriverViewCell.swift */; };
 		510A3A6123ABFE65004CF7C2 /* DriverViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 510A3A5F23ABFE65004CF7C2 /* DriverViewCell.xib */; };
@@ -53,6 +54,7 @@
 
 /* Begin PBXFileReference section */
 		3C3FA0898D679D2ACBC71152 /* Pods-UberClone.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-UberClone.release.xcconfig"; path = "Pods/Target Support Files/Pods-UberClone/Pods-UberClone.release.xcconfig"; sourceTree = "<group>"; };
+		5108A5D223BB485500FE569C /* FirebaseConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirebaseConstants.swift; sourceTree = "<group>"; };
 		510A3A5B23ABFD7E004CF7C2 /* NibName.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NibName.swift; sourceTree = "<group>"; };
 		510A3A5E23ABFE65004CF7C2 /* DriverViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DriverViewCell.swift; sourceTree = "<group>"; };
 		510A3A5F23ABFE65004CF7C2 /* DriverViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DriverViewCell.xib; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 			isa = PBXGroup;
 			children = (
 				510A3A5B23ABFD7E004CF7C2 /* NibName.swift */,
+				5108A5D223BB485500FE569C /* FirebaseConstants.swift */,
 			);
 			path = Constants;
 			sourceTree = "<group>";
@@ -569,6 +572,7 @@
 			files = (
 				5169AA34239EB6B30054D16A /* LoginPresenter.swift in Sources */,
 				5169AA28239EB1BC0054D16A /* FirebaseManager.swift in Sources */,
+				5108A5D323BB485500FE569C /* FirebaseConstants.swift in Sources */,
 				510A3A6023ABFE65004CF7C2 /* DriverViewCell.swift in Sources */,
 				5169AA1F239EAC930054D16A /* CoreAssembly.swift in Sources */,
 				51D7618923A64965004FDB6B /* DriverPresenter.swift in Sources */,

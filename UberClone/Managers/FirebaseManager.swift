@@ -44,15 +44,20 @@ class FirebaseManager {
     }
     
     func setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude (email: String, latitude: Double, longitude: Double) {
-        let riderRequestDictionary: [String: Any] = ["email": email, "latitude": latitude, "longitude": longitude]
-        Database.database().reference().child("RideRequest").childByAutoId().setValue(riderRequestDictionary)
+                
+        Database.database().reference().child(FirebaseConstants.riderEntitiesName).childByAutoId().setValue([
+            "email": email,
+            "latitude" : latitude,
+            "longitude" : longitude
+        ])
+        
     }
     
     func cancelUberFromDatabase () {
         let currentEmail = getCurrentUserEmail()
-        Database.database().reference().child("RideRequest").queryOrdered(byChild: "email").queryEqual(toValue: currentEmail).observe(.childAdded, with: { (snapShot) in
+        Database.database().reference().child(FirebaseConstants.riderEntitiesName).queryOrdered(byChild: FirebaseConstants.email).queryEqual(toValue: currentEmail).observe(.childAdded, with: { (snapShot) in
             snapShot.ref.removeValue()
-            Database.database().reference().child("RideRequest").removeAllObservers()
+            Database.database().reference().child(FirebaseConstants.riderEntitiesName).removeAllObservers()
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -64,8 +69,8 @@ class FirebaseManager {
     
     func removeObserver (toggleToChange: inout Bool?) {
         let currentEmail = getCurrentUserEmail()
-        Database.database().reference().child("RideRequest").queryOrdered(byChild: "email").queryEqual(toValue: currentEmail).observe(.childAdded, with: { (snapShot) in
-            Database.database().reference().child("RideRequest").removeAllObservers()
+        Database.database().reference().child(FirebaseConstants.riderEntitiesName).queryOrdered(byChild: FirebaseConstants.email).queryEqual(toValue: currentEmail).observe(.childAdded, with: { (snapShot) in
+            Database.database().reference().child(FirebaseConstants.riderEntitiesName).removeAllObservers()
         }) { (error) in
             print(error.localizedDescription)
         }
@@ -87,9 +92,9 @@ class FirebaseManager {
     }
     
     func acceptPerformRide (emailRequest: String, driverLatitude: Double, driverLongitude: Double, success: @escaping (String?) -> Void, failure: @escaping (String?) -> Void) {
-        Database.database().reference().child("RideRequest").queryOrdered(byChild: "email").queryEqual(toValue: emailRequest).observe(.childAdded, with: { (snapShot) in
-            snapShot.ref.updateChildValues(["driverLatitude" : driverLatitude, "driverLongitude": driverLongitude ])
-            Database.database().reference().child("RideRequest").removeAllObservers()
+        Database.database().reference().child(FirebaseConstants.riderEntitiesName).queryOrdered(byChild: FirebaseConstants.email).queryEqual(toValue: emailRequest).observe(.childAdded, with: { (snapShot) in
+            snapShot.ref.updateChildValues([FirebaseConstants.driverLatitude : driverLatitude, FirebaseConstants.driverLongitude: driverLongitude ])
+            Database.database().reference().child(FirebaseConstants.riderEntitiesName).removeAllObservers()
             success("Carrera Aceptada")
         }) { (error) in
             print(error.localizedDescription)
@@ -98,7 +103,7 @@ class FirebaseManager {
     }
     
     func getAllRiderPetitions (success: @escaping (RiderRequestEntities?) -> Void, failure: @escaping(String?) -> Void) {
-        Database.database().reference().child("RideRequest").observe(.value, with: { (snapshot) in
+        Database.database().reference().child(FirebaseConstants.riderEntitiesName).observe(.value, with: { (snapshot) in
             let entities = self.transformSnapshotToEntity(snapshot: snapshot)
             success(entities)
         }) { (error) in
@@ -119,19 +124,19 @@ class FirebaseManager {
         for dictionary in dataDictionary ?? [String: Any]() {
             if let riderValues = dictionary.value as? [String: Any] {
                 for rider in riderValues {
-                    if rider.key == "email" {
+                    if rider.key == FirebaseConstants.email {
                         email = rider.value as? String ?? ""
                     }
-                    if rider.key == "latitude" {
+                    if rider.key == FirebaseConstants.latitude {
                         latitude = rider.value as? Double ?? 0.0
                     }
-                    if rider.key == "longitude" {
+                    if rider.key == FirebaseConstants.longitude {
                         longitude = rider.value as? Double ?? 0.0
                     }
-                    if rider.key == "driverLatitude" {
+                    if rider.key == FirebaseConstants.driverLatitude {
                         driverLatitude = rider.value as? Double ?? 0.0
                     }
-                    if rider.key == "driverLongitude" {
+                    if rider.key == FirebaseConstants.driverLongitude {
                         driverLongitude = rider.value as? Double ?? 0.0
                     }
                 }
