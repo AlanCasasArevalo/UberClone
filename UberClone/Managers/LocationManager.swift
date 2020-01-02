@@ -23,10 +23,13 @@ class LocationManager: NSObject {
     var locationManager : CLLocationManager?
     var map: MKMapView?
     var isRiderUserDetailed: Bool = false
+    var driverOnTheWay: Bool = false
+    var uberHasBeenCalled: Bool = false
     var region: MKCoordinateRegion?
     var currentUserLocation = CLLocationCoordinate2D()
     var riderCurrentLocation = CLLocationCoordinate2D()
-    
+    var driverCurrentLocation = CLLocationCoordinate2D()
+
     var riderEmail = ""
     
     func locationReference () {
@@ -136,6 +139,22 @@ class LocationManager: NSObject {
         return riderCurrentLocation
     }
 
+    func setDriverCurrentLocation (latitude: Double, longitude: Double) {
+        driverCurrentLocation = CLLocationCoordinate2D(latitude: latitude, longitude: longitude)
+    }
+
+    func getDriverCurrentLocation () -> CLLocationCoordinate2D {
+        return driverCurrentLocation
+    }
+
+    func setDriverOnTheWay(driverOnTheWay: Bool){
+        self.driverOnTheWay = driverOnTheWay
+    }
+
+    func setUberHasBeenCalled(uberHasBeenCalled: Bool){
+        self.uberHasBeenCalled = uberHasBeenCalled
+    }
+
     func getReverseGeoCodeLocation (email: String, success: @escaping (String?) -> Void, failure: @escaping (String?) -> Void) {
         let requestCLLocation = CLLocation(latitude: riderCurrentLocation.latitude, longitude: riderCurrentLocation.longitude)
         CLGeocoder().reverseGeocodeLocation(requestCLLocation) { (placeMarks, error) in
@@ -150,17 +169,25 @@ class LocationManager: NSObject {
                     let options = [MKLaunchOptionsDirectionsModeKey: MKLaunchOptionsDirectionsModeDriving]
                     mapItem.openInMaps(launchOptions: options)
                 }
-                
             }
         }
-        failure("Error al hacer la geolocalizacion inversa")
     }
-    
 }
 
-extension LocationManager: CLLocationManagerDelegate {
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        if let coordinate = manager.location?.coordinate {
+extension LocationManager {
+    func displayDriverAndRiderOnMap (coordinate: CLLocationCoordinate2D) {
+        if driverOnTheWay {
+            self.removePreviousAnnotations()
+            let latitudeDelta = abs(driverCurrentLocation.latitude - riderCurrentLocation.latitude) * 2 + 0.005
+            let longitudeDelta = abs(driverCurrentLocation.longitude - riderCurrentLocation.longitude) * 2 + 0.005
+            let span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
+            let region = MKCoordinateRegion(center: riderCurrentLocation, span: span)
+            map?.setRegion(region, animated: true)
+            
+            setNewAnnotation(annotationCoordinate: riderCurrentLocation, annotationTitle: riderEmail)
+            setNewAnnotation(annotationCoordinate: driverCurrentLocation, annotationTitle: "Driver location")
+            
+        } else {
             if !isRiderUserDetailed {
                 let center = CLLocationCoordinate2D(latitude: coordinate.latitude, longitude: coordinate.longitude)
                 let span = MKCoordinateSpan(latitudeDelta: 0.02, longitudeDelta: 0.02)
@@ -180,6 +207,21 @@ extension LocationManager: CLLocationManagerDelegate {
                 riderCurrentLocation = center
                 setUserLocationPoint(center: center, title: getRiderEmail())
             }
+        }
+    }
+    
+    func setNewAnnotation (annotationCoordinate: CLLocationCoordinate2D, annotationTitle: String) {
+        let newAnnotation = MKPointAnnotation()
+        newAnnotation.coordinate = annotationCoordinate
+        newAnnotation.title = annotationTitle
+        map?.addAnnotation(newAnnotation)
+    }
+}
+
+extension LocationManager: CLLocationManagerDelegate {
+    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        if let coordinate = manager.location?.coordinate {
+            displayDriverAndRiderOnMap(coordinate: coordinate)
         }
     }
     

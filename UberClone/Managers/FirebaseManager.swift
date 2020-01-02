@@ -43,13 +43,23 @@ class FirebaseManager {
         return Auth.auth().currentUser?.email ?? ""
     }
     
-    func setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude (email: String, latitude: Double, longitude: Double) {
-                
-        Database.database().reference().child(FirebaseConstants.riderEntitiesName).childByAutoId().setValue([
-            "email": email,
-            "latitude" : latitude,
-            "longitude" : longitude
-        ])
+    func setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude (email: String, latitude: Double, longitude: Double, success: @escaping (String?) -> Void, failure: @escaping (String?) -> Void) {
+        
+        
+        // TODO: Esto no funciona correctamente, si eliminamos email si funciona correctamente
+        let riderDictionary: [String: Any] = [
+            FirebaseConstants.email: email,
+            FirebaseConstants.latitude : latitude,
+            FirebaseConstants.longitude : longitude
+        ]
+        
+        Database.database().reference().child(FirebaseConstants.riderEntitiesName).childByAutoId().setValue(riderDictionary) { (error, dataReference) in
+            if error != nil {
+                failure(error?.localizedDescription)
+            } else {
+                success("Todo OK")
+            }
+        }
         
     }
     

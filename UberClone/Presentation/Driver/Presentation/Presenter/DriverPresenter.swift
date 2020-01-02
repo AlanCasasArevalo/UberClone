@@ -27,7 +27,9 @@ class DriverPresenter: DriverPresenterProtocol {
     
     func viewDidLoad() {
         getAllRiderPetitions()
-        reloadtableViewFromPresenter()        
+        reloadtableViewFromPresenter()
+        let driverLocation = LocationManager.shared.getCurrentUserLocationUpdated()
+        LocationManager.shared.setDriverCurrentLocation(latitude: driverLocation.latitude, longitude: driverLocation.longitude)        
     }
     
     func viewWillAppear() {

@@ -14,8 +14,12 @@ protocol RiderProviderProtocol {
 
 class RiderProvider: RiderProviderProtocol {
     
-    func setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude(withEmail: String, latitude: Double, longitude: Double, success: @escaping (String?) -> Void, failure: @escaping (String?) -> Void) {
-        FirebaseManager.shared.setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude(email: withEmail, latitude: latitude, longitude: longitude)
+    func setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude(withEmail: String, latitude: Double, longitude: Double, success: @escaping (String?) -> Void, failure: @escaping (String?) -> Void) {        
+        FirebaseManager.shared.setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude(email: withEmail, latitude: latitude, longitude: longitude, success: { (successResult) in
+            success(successResult)
+        }) { (error) in
+            failure(error)
+        }
     }
     
     func signIn(withEmail: String, password: String, success: @escaping (String?) -> Void, failure: @escaping (String?) -> Void) {

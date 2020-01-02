@@ -30,6 +30,7 @@ class RiderUserDetailedViewController: UIViewController, RiderUserDetailedViewCo
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.presenter?.viewWillAppear()
+        setupRiderAcceptRequestButton()        
     }
     
     override func viewDidDisappear(_ animated: Bool) {

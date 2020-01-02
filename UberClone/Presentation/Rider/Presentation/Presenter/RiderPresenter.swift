@@ -60,8 +60,12 @@ class RiderPresenter: RiderPresenterProtocol {
             
             interactor?.setNewRiderIntoDataBaseWithEmailLatitudeAndLongitude(withEmail: currentUserEmail, latitude: currentUserLocation.latitude, longitude: currentUserLocation.longitude, success: { (successResult) in
                 
-            }, failure: { (error) in
                 
+                LocationManager.shared.setUberHasBeenCalled(uberHasBeenCalled: !(self.uberHasBeenCalled ?? true))
+                print(successResult)
+                
+            }, failure: { (error) in
+                print(error)
             })
         }
         uberHasBeenCalled?.toggle()

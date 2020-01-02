@@ -22,6 +22,7 @@ class RiderUserDetailedPresenter: RiderUserDetailedPresenterProtocol {
     var router: RiderUserDetailedRouterProtocol?
     var interactor: RiderUserDetailedInteractorProtocol?
     var riderRequestEntity: RiderRequestEntity?
+    var driverOnTheWay: Bool = false
 
     func viewDidLoad() {
         LocationManager.shared.setIsRiderUserDetailed(riderUserDetailed: true)
@@ -43,7 +44,7 @@ class RiderUserDetailedPresenter: RiderUserDetailedPresenterProtocol {
         interactor?.acceptPerformRide(emailRequest: riderRequestEntity?.email ?? "", driverLatitude: driverLocation.latitude, driverLongitude: driverLocation.longitude, success: { (result) in
             //Give direction
             self.interactor?.openMapWithRiderAndDriver(email: self.riderRequestEntity?.email ?? "", success: { (result) in
-                
+                LocationManager.shared.setDriverOnTheWay(driverOnTheWay: self.driverOnTheWay)
             }, failure: { (error) in
                 print(error)
             })
